@@ -4,7 +4,6 @@ import (
 	"os"
 	"bufio"
 	"strings"
-	"strconv"
 	"time"
 	"fmt"
 	"encoding/json"
@@ -24,7 +23,7 @@ type Timeline struct {
 
 func getTask(cpuNum string) []string {
 	var Results []string
-	file, err := os.Open("sched_debug")
+	file, err := os.Open("/proc/sched_debug")
 	if err != nil {
 		panic(err)
 	}
@@ -59,11 +58,12 @@ func main() {
 	for {
 		result.Second = second
 		percentPerCpu, _ := cpu.Percent(time.Second*1, true)
-		for i, usg := percentPerCpu {
+		for i, usg := range percentPerCpu {
 			result.Data[i].Usage = float64(usg)
-			result.Data[i].CPU = i
-			result.Data[i].Task = getTask()
+			result.Data[i].Cpu = string(i)
+			result.Data[i].Task = getTask(string(i))
 		}
+		fmt.Println(result)
 		enc.Encode(result)
 		second += 1
 	}
