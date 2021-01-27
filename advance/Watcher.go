@@ -61,7 +61,7 @@ func main() {
 		for i, usg := range percentPerCpu {
 			var everySecond CpusTask
 			everySecond.Usage = float64(usg)
-			everySecond.Cpu, _ = fmt.Printf("%d", i)
+			everySecond.Cpu, _ = string(fmt.Printf("%d", i))
 			everySecond.Task = getTask(string(i))
 			result.Data = append(result.Data, everySecond)
 		}
