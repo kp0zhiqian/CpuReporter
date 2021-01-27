@@ -36,11 +36,11 @@ func getTask() []CpusTask {
 		line := scanner.Text()
 		if strings.HasPrefix(line, "cpu#") {
 			var SingleCpu CpusTask
-			cpu := strings.Split(strings.Split(line, ",")[0], "#")[1]
+			cpuTag := strings.Split(strings.Split(line, ",")[0], "#")[1]
 			percentPerCpu, _ := cpu.Percent(time.Second*1, true)
-			cpu_i, _ = strconv.ParseInt(cpu, 10, 64)
+			cpu_i, _ = strconv.ParseInt(cpuTag, 10, 64)
 			SingleCpu.Usage = percentPerCpu[cpu_i]
-			SingleCpu.Cpu = cpu
+			SingleCpu.Cpu = cpuTag
 			Results = append(Results, SingleCpu)
 		} else if strings.HasPrefix(line, " S") || strings.HasPrefix(line, " I") || strings.HasPrefix(line, ">R") {
 			Results[cpu_i].Task = append(Results[cpu_i].Task, line)
