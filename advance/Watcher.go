@@ -62,7 +62,7 @@ func main() {
 			var everySecond CpusTask
 			currentCPU, _ := fmt.Printf("%d", i)
 			everySecond.Usage = float64(usg)
-			everySecond.Cpu = string(currentCPU)
+			everySecond.Cpu = strconv.Itoa(currentCPU)
 			everySecond.Task = getTask(string(i))
 			result.Data = append(result.Data, everySecond)
 		}
