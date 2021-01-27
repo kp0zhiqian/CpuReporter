@@ -94,6 +94,9 @@ func createPerCpuHeatMap(cpus []string) *charts.HeatMap {
 			Width:  "1800px",
 			Height: "700px",
 		}),
+		charts.WithTooltipOpts(opts.Tooltip{
+			Show: true,
+		}),
 		charts.WithTitleOpts(opts.Title{
 			Title: "Per CPU Usage HeatMap",
 		}),

@@ -1,0 +1,2293 @@
+Sched Debug Version: v0.11, 4.18.0-274.el8.x86_64 #1
+ktime                                   : 26181237.123982
+sched_clk                               : 26183802.194691
+cpu_clk                                 : 26181497.900166
+jiffies                                 : 4320848534
+sched_clock_stable()                    : 1
+
+sysctl_sched
+  .sysctl_sched_latency                    : 24.000000
+  .sysctl_sched_min_granularity            : 10.000000
+  .sysctl_sched_wakeup_granularity         : 15.000000
+  .sysctl_sched_child_runs_first           : 0
+  .sysctl_sched_features                   : 4156219
+  .sysctl_sched_tunable_scaling            : 1 (logaritmic)
+
+cpu#0, 2200.000 MHz
+  .nr_running                    : 1
+  .nr_switches                   : 364331
+  .nr_load_updates               : 0
+  .nr_uninterruptible            : -21
+  .next_balance                  : 4320.848576
+  .curr->pid                     : 27030
+  .clock                         : 26181497.777207
+  .clock_task                    : 26154488.101746
+  .avg_idle                      : 1000000
+  .max_idle_balance_cost         : 500000
+
+cfs_rq[0]:/
+  .exec_clock                    : 0.000000
+  .MIN_vruntime                  : 0.000001
+  .min_vruntime                  : 11536326.193182
+  .max_vruntime                  : 0.000001
+  .spread                        : 0.000000
+  .spread0                       : 0.000000
+  .nr_spread_over                : 0
+  .nr_running                    : 1
+  .load                          : 1048576
+  .load_avg                      : 1026
+  .runnable_avg                  : 1026
+  .util_avg                      : 1024
+  .util_est_enqueued             : 513
+  .removed.load_avg              : 0
+  .removed.util_avg              : 0
+  .removed.runnable_avg          : 0
+  .tg_load_avg_contrib           : 0
+  .tg_load_avg                   : 0
+  .throttled                     : 0
+  .throttle_count                : 0
+
+rt_rq[0]:/
+  .rt_nr_running                 : 0
+  .rt_nr_migratory               : 0
+  .rt_throttled                  : 0
+  .rt_time                       : 0.000000
+  .rt_runtime                    : 950.000000
+
+dl_rq[0]:
+  .dl_nr_running                 : 0
+  .dl_nr_migratory               : 0
+  .dl_bw->bw                     : 996147
+  .dl_bw->total_bw               : 0
+
+runnable tasks:
+ S            task   PID         tree-key  switches  prio     wait-time             sum-exec        sum-sleep
+-------------------------------------------------------------------------------------------------------------
+ I          rcu_gp     3        13.969843         2   100         0.000000         0.002637         0.000000 0 0 /
+ I      rcu_par_gp     4        15.970110         2   100         0.000000         0.001463         0.000000 0 0 /
+ I    kworker/0:0H     6     10425.467222        13   100         0.000000         0.429059         0.000000 0 0 /
+ I    mm_percpu_wq    10        23.540558         2   100         0.000000         0.001935         0.000000 0 0 /
+ S     ksoftirqd/0    11    473419.773082       696   120         0.000000         4.647261         0.000000 0 0 /
+ S     migration/0    13         0.000000        21     0         0.000000         1.480421         0.000000 0 0 /
+ S      watchdog/0    14         0.000000      6550     0         0.000000         3.128838         0.000000 0 0 /
+ S         cpuhp/0    15      5091.636652        22   120         0.000000        20.327473         0.000000 0 0 /
+ I    kworker/0:1H  5706    473403.317883        14   100         0.000000         0.200238         0.000000 0 0 /
+ I     kworker/0:0 25555  11536196.437532     76396   120         0.000000       268.911794         0.000000 0 0 /
+ I     kworker/0:1 25556    472671.932533         6   120         0.000000         0.096923         0.000000 0 0 /
+>R          stress 27030  11536326.193182     66277   120         0.000000  11063173.338223         0.000000 0 0 /
+
+cpu#1, 2200.000 MHz
+  .nr_running                    : 0
+  .nr_switches                   : 137230
+  .nr_load_updates               : 0
+  .nr_uninterruptible            : 35
+  .next_balance                  : 4320.848535
+  .curr->pid                     : 0
+  .clock                         : 26181497.790015
+  .clock_task                    : 26103167.403970
+  .avg_idle                      : 1000000
+  .max_idle_balance_cost         : 500000
+
+rt_rq[1]:/
+  .rt_nr_running                 : 0
+  .rt_nr_migratory               : 0
+  .rt_throttled                  : 0
+  .rt_time                       : 0.000000
+  .rt_runtime                    : 950.000000
+
+dl_rq[1]:
+  .dl_nr_running                 : 0
+  .dl_nr_migratory               : 0
+  .dl_bw->bw                     : 996147
+  .dl_bw->total_bw               : 0
+
+runnable tasks:
+ S            task   PID         tree-key  switches  prio     wait-time             sum-exec        sum-sleep
+-------------------------------------------------------------------------------------------------------------
+ S         cpuhp/1    16      6385.117621        24   120         0.000000        16.984952         0.000000 1 0 /
+ S      watchdog/1    17        -2.963273      6548     0         0.000000        25.469629         0.000000 1 0 /
+ S     migration/1    18         0.000000        24     0         0.000000         1.528699         0.000000 1 0 /
+ S     ksoftirqd/1    19    316124.439437       138   120         0.000000         0.867564         0.000000 1 0 /
+ I    kworker/1:0H    21      6373.145384        14   100         0.000000         0.050802         0.000000 1 0 /
+ S      khungtaskd   356    316124.681737       215   120         0.000000         8.017230         0.000000 1 0 /
+ I     mlx4_health   908       314.437544         2   100         0.000000         0.005528         0.000000 1 0 /
+ S    xfsaild/dm-2  1591    200016.968962         9   120         0.000000         0.162195         0.000000 1 0 /
+ I    kworker/1:1H  1740    290475.792486       243   100         0.000000         1.228195         0.000000 1 0 /
+ I     kworker/1:1 21313    277773.529250        56   120         0.000000         0.545237         0.000000 1 0 /
+ I     kworker/1:3 21736    316124.469961      2481   120         0.000000         4.977258         0.000000 1 0 /
+
+cpu#2, 2200.000 MHz
+  .nr_running                    : 0
+  .nr_switches                   : 48813
+  .nr_load_updates               : 0
+  .nr_uninterruptible            : -1
+  .next_balance                  : 4320.848535
+  .curr->pid                     : 0
+  .clock                         : 26181494.778826
+  .clock_task                    : 26180735.643081
+  .avg_idle                      : 1000000
+  .max_idle_balance_cost         : 500000
+
+rt_rq[2]:/
+  .rt_nr_running                 : 0
+  .rt_nr_migratory               : 0
+  .rt_throttled                  : 0
+  .rt_time                       : 0.000000
+  .rt_runtime                    : 950.000000
+
+dl_rq[2]:
+  .dl_nr_running                 : 0
+  .dl_nr_migratory               : 0
+  .dl_bw->bw                     : 996147
+  .dl_bw->total_bw               : 0
+
+runnable tasks:
+ S            task   PID         tree-key  switches  prio     wait-time             sum-exec        sum-sleep
+-------------------------------------------------------------------------------------------------------------
+ S         cpuhp/2    23      1281.311301        22   120         0.000000         0.351912         0.000000 0 0 /
+ S      watchdog/2    24        -6.000000      6549     0         0.000000        20.597851         0.000000 0 0 /
+ S     migration/2    25       148.244810        13     0         0.000000         1.197706         0.000000 0 0 /
+ S     ksoftirqd/2    26    456517.703659        70   120         0.000000         1.211767         0.000000 0 0 /
+ I    kworker/2:0H    28       728.572580         8   100         0.000000         0.070575         0.000000 0 0 /
+ I           netns   348        53.665607         2   100         0.000000         0.001635         0.000000 0 0 /
+ S      kcompactd0   359        65.665601         3   120         0.000000         0.000000         0.000000 0 0 /
+ S         kswapd0   438        65.693570         4   120         0.000000         0.031306         0.000000 0 0 /
+ I      scsi_tmf_3   923       669.894640         2   100         0.000000         0.007405         0.000000 0 0 /
+ I     mlx5_events  1034       711.726443         2   100         0.000000         0.013396         0.000000 0 0 /
+ I      mlx5e_arfs  1046       723.786751         2   100         0.000000         0.062945         0.000000 0 0 /
+ I    kworker/2:1H  1074    456127.122844       129   100         0.000000         2.270973         0.000000 0 0 /
+ I         mlx4_en  1112       753.551448         2   100         0.000000         0.012814         0.000000 0 0 /
+ I        xfsalloc  1231       817.087919         2   100         0.000000         0.007401         0.000000 0 0 /
+ S            qmgr 17556    730651.328135       173   120         0.000000        19.649905         0.000000 0 0 /
+ I     kworker/2:2 21314    456517.867672       246   120         0.000000         2.228822         0.000000 0 0 /
+ I     kworker/2:1 27007    730649.883430        92   120         0.000000         0.233990         0.000000 0 0 /
+
+cpu#3, 2200.000 MHz
+  .nr_running                    : 0
+  .nr_switches                   : 123388
+  .nr_load_updates               : 0
+  .nr_uninterruptible            : -13
+  .next_balance                  : 4320.848535
+  .curr->pid                     : 0
+  .clock                         : 26181494.779473
+  .clock_task                    : 26180936.913990
+  .avg_idle                      : 1000000
+  .max_idle_balance_cost         : 500000
+
+rt_rq[3]:/
+  .rt_nr_running                 : 0
+  .rt_nr_migratory               : 0
+  .rt_throttled                  : 0
+  .rt_time                       : 0.000000
+  .rt_runtime                    : 950.000000
+
+dl_rq[3]:
+  .dl_nr_running                 : 0
+  .dl_nr_migratory               : 0
+  .dl_bw->bw                     : 996147
+  .dl_bw->total_bw               : 0
+
+runnable tasks:
+ S            task   PID         tree-key  switches  prio     wait-time             sum-exec        sum-sleep
+-------------------------------------------------------------------------------------------------------------
+ S         cpuhp/3    29       548.980277        22   120         0.000000         0.192498         0.000000 1 0 /
+ S      watchdog/3    30        -6.000000      6549     0         0.000000        34.832622         0.000000 1 0 /
+ S     migration/3    31       178.431648        22     0         0.000000         1.504423         0.000000 1 0 /
+ S     ksoftirqd/3    32    225419.173742        24   120         0.000000         0.075916         0.000000 1 0 /
+ I    kworker/3:0H    34       549.288353        14   100         0.000000         0.031872         0.000000 1 0 /
+ I     kworker/3:1   374    225629.056627      2879   120         0.000000        56.539505         0.000000 1 0 /
+ I          kaluad   537       106.362077         2   100         0.000000         0.009181         0.000000 1 0 /
+ I mlx5_cmd_0000:3   925       186.457563         2   100         0.000000         0.007467         0.000000 1 0 /
+ I     kworker/3:2  1236    166746.552877        14   120         0.000000         0.033775         0.000000 1 0 /
+ S    xfsaild/sda1  1587    166747.997367      1196   120         0.000000         6.763955         0.000000 1 0 /
+ I    kworker/3:1H  1741    223050.124246       201   100         0.000000         0.909170         0.000000 1 0 /
+
+cpu#4, 2200.000 MHz
+  .nr_running                    : 0
+  .nr_switches                   : 38277
+  .nr_load_updates               : 0
+  .nr_uninterruptible            : 13
+  .next_balance                  : 4320.848535
+  .curr->pid                     : 0
+  .clock                         : 26181494.779866
+  .clock_task                    : 26181288.650039
+  .avg_idle                      : 1000000
+  .max_idle_balance_cost         : 500000
+
+rt_rq[4]:/
+  .rt_nr_running                 : 0
+  .rt_nr_migratory               : 0
+  .rt_throttled                  : 0
+  .rt_time                       : 0.000000
+  .rt_runtime                    : 950.000000
+
+dl_rq[4]:
+  .dl_nr_running                 : 0
+  .dl_nr_migratory               : 0
+  .dl_bw->bw                     : 996147
+  .dl_bw->total_bw               : 0
+
+runnable tasks:
+ S            task   PID         tree-key  switches  prio     wait-time             sum-exec        sum-sleep
+-------------------------------------------------------------------------------------------------------------
+ S         cpuhp/4    35       894.389047        22   120         0.000000         0.492869         0.000000 0 0 /
+ S      watchdog/4    36        -8.995004      6549     0         0.000000        33.301098         0.000000 0 0 /
+ S     migration/4    37       217.126282        17     0         0.000000         1.136662         0.000000 0 0 /
+ S     ksoftirqd/4    38    406443.834217        47   120         0.000000         0.925205         0.000000 0 0 /
+ I    kworker/4:0H    40      4564.487568        14   100         0.000000         0.050159         0.000000 0 0 /
+ S   irq/24-pciehp   533         0.000000         3    49         0.000000         0.015062         0.000000 0 0 /
+ I    xfs-buf/dm-2  1576       904.824423         2   100         0.000000         0.007262         0.000000 0 0 /
+ S            sssd  1667    406473.427676      1831   120         0.000000       143.632071         0.000000 0 0 /
+ I    kworker/4:1H  7732    406456.117835        45   100         0.000000         0.494356         0.000000 0 0 /
+ I     kworker/4:1 21698    406466.327223       323   120         0.000000         3.880741         0.000000 0 0 /
+ I     kworker/4:2 28266    406455.828766         2   120         0.000000         0.004292         0.000000 0 0 /
+
+cpu#5, 2200.000 MHz
+  .nr_running                    : 0
+  .nr_switches                   : 239937
+  .nr_load_updates               : 0
+  .nr_uninterruptible            : 24
+  .next_balance                  : 4320.848538
+  .curr->pid                     : 0
+  .clock                         : 26181497.780749
+  .clock_task                    : 26180686.282557
+  .avg_idle                      : 1000000
+  .max_idle_balance_cost         : 500000
+
+rt_rq[5]:/
+  .rt_nr_running                 : 0
+  .rt_nr_migratory               : 0
+  .rt_throttled                  : 0
+  .rt_time                       : 0.000000
+  .rt_runtime                    : 950.000000
+
+dl_rq[5]:
+  .dl_nr_running                 : 0
+  .dl_nr_migratory               : 0
+  .dl_bw->bw                     : 996147
+  .dl_bw->total_bw               : 0
+
+runnable tasks:
+ S            task   PID         tree-key  switches  prio     wait-time             sum-exec        sum-sleep
+-------------------------------------------------------------------------------------------------------------
+ S         cpuhp/5    41       573.250498        22   120         0.000000         0.439866         0.000000 1 0 /
+ S      watchdog/5    42        -9.000000      6549     0         0.000000        31.650249         0.000000 1 0 /
+ S     migration/5    43         0.000000         8     0         0.000000         1.159857         0.000000 1 0 /
+ S     ksoftirqd/5    44     16499.613216        23   120         0.000000         0.382600         0.000000 1 0 /
+ I     kworker/5:0    45     22776.893928       409   120         0.000000         2.620384         0.000000 1 0 /
+ I    kworker/5:0H    46      4261.791523        14   100         0.000000         0.105866         0.000000 1 0 /
+ I  kworker/u98:21   344     22779.757858      1419   120         0.000000       136.052188         0.000000 1 0 /
+ I       writeback   358        71.302787         2   100         0.000000         0.000000         0.000000 1 0 /
+ S       scsi_eh_1   918       268.932830        25   120         0.000000         0.157499         0.000000 1 0 /
+ I    kworker/5:1H  7824     22776.800629       195   100         0.000000         1.160012         0.000000 1 0 /
+ I     kworker/5:2 20406     17637.875861         2   120         0.000000         0.005070         0.000000 1 0 /
+
+cpu#6, 2200.000 MHz
+  .nr_running                    : 0
+  .nr_switches                   : 151588
+  .nr_load_updates               : 0
+  .nr_uninterruptible            : -7
+  .next_balance                  : 4320.848535
+  .curr->pid                     : 0
+  .clock                         : 26181494.780265
+  .clock_task                    : 26179445.834163
+  .avg_idle                      : 1000000
+  .max_idle_balance_cost         : 500000
+
+rt_rq[6]:/
+  .rt_nr_running                 : 0
+  .rt_nr_migratory               : 0
+  .rt_throttled                  : 0
+  .rt_time                       : 0.000000
+  .rt_runtime                    : 950.000000
+
+dl_rq[6]:
+  .dl_nr_running                 : 0
+  .dl_nr_migratory               : 0
+  .dl_bw->bw                     : 996147
+  .dl_bw->total_bw               : 0
+
+runnable tasks:
+ S            task   PID         tree-key  switches  prio     wait-time             sum-exec        sum-sleep
+-------------------------------------------------------------------------------------------------------------
+ S         cpuhp/6    47       988.098930        22   120         0.000000         0.502623         0.000000 0 0 /
+ S      watchdog/6    48        -8.973651      6549     0         0.000000        25.094269         0.000000 0 0 /
+ S     migration/6    49       313.131228        18     0         0.000000         1.110255         0.000000 0 0 /
+ S     ksoftirqd/6    50    217445.897275        52   120         0.000000      4575.083421         0.000000 0 0 /
+ I    kworker/6:0H    52      4935.229898        13   100         0.000000         0.054817         0.000000 0 0 /
+ I     kworker/6:2   355    216683.758567       999   120         0.000000        20.286449         0.000000 0 0 /
+ S       scsi_eh_4   927       272.876966        25   120         0.000000         0.172062         0.000000 0 0 /
+ S systemd-journal  1345    217460.449170      1092   120         0.000000       350.824848         0.000000 0 0 /
+ S         chronyd  1708    217459.332525       357   120         0.000000        28.672149         0.000000 0 0 /
+ S            pool 17572    217469.030055      3490   120         0.000000       143.838831         0.000000 0 0 /
+ I    kworker/6:1H  7738    217390.779667       149   100         0.000000         1.646113         0.000000 0 0 /
+ I     kworker/6:0 21699    217461.391089      2142   120         0.000000        49.736337         0.000000 0 0 /
+
+cpu#7, 2200.000 MHz
+  .nr_running                    : 0
+  .nr_switches                   : 189273
+  .nr_load_updates               : 0
+  .nr_uninterruptible            : 5
+  .next_balance                  : 4320.848535
+  .curr->pid                     : 0
+  .clock                         : 26181494.780605
+  .clock_task                    : 26180536.720802
+  .avg_idle                      : 1000000
+  .max_idle_balance_cost         : 500000
+
+rt_rq[7]:/
+  .rt_nr_running                 : 0
+  .rt_nr_migratory               : 0
+  .rt_throttled                  : 0
+  .rt_time                       : 0.000000
+  .rt_runtime                    : 950.000000
+
+dl_rq[7]:
+  .dl_nr_running                 : 0
+  .dl_nr_migratory               : 0
+  .dl_bw->bw                     : 996147
+  .dl_bw->total_bw               : 0
+
+runnable tasks:
+ S            task   PID         tree-key  switches  prio     wait-time             sum-exec        sum-sleep
+-------------------------------------------------------------------------------------------------------------
+ S         cpuhp/7    53       269.123724        22   120         0.000000         0.688585         0.000000 1 0 /
+ S      watchdog/7    54        -9.000000      6549     0         0.000000        34.654706         0.000000 1 0 /
+ S     migration/7    55         0.000000        16     0         0.000000         1.183215         0.000000 1 0 /
+ S     ksoftirqd/7    56     55040.339944        13   120         0.000000         0.162518         0.000000 1 0 /
+ I    kworker/7:0H    58       282.617115        14   100         0.000000         0.151933         0.000000 1 0 /
+ I     kworker/7:1   376     54921.625419       109   120         0.000000         0.703123         0.000000 1 0 /
+ I              md   415        74.394722         2   100         0.000000         0.000000         0.000000 1 0 /
+ I    kworker/7:1H  1743    205031.151138       121   100         0.000000         1.733294         0.000000 1 0 /
+ I     kworker/7:2  3571    205278.147598       816   120         0.000000         4.398277         0.000000 1 0 /
+ S            sshd 17783     55052.975550        65   120         0.000000        21.251285         0.000000 1 0 /
+
+cpu#8, 2200.000 MHz
+  .nr_running                    : 0
+  .nr_switches                   : 149383
+  .nr_load_updates               : 0
+  .nr_uninterruptible            : 8
+  .next_balance                  : 4320.848538
+  .curr->pid                     : 0
+  .clock                         : 26181497.781938
+  .clock_task                    : 26180704.924130
+  .avg_idle                      : 1000000
+  .max_idle_balance_cost         : 500000
+
+rt_rq[8]:/
+  .rt_nr_running                 : 0
+  .rt_nr_migratory               : 0
+  .rt_throttled                  : 0
+  .rt_time                       : 0.000000
+  .rt_runtime                    : 950.000000
+
+dl_rq[8]:
+  .dl_nr_running                 : 0
+  .dl_nr_migratory               : 0
+  .dl_bw->bw                     : 996147
+  .dl_bw->total_bw               : 0
+
+runnable tasks:
+ S            task   PID         tree-key  switches  prio     wait-time             sum-exec        sum-sleep
+-------------------------------------------------------------------------------------------------------------
+ S         cpuhp/8    59      1137.223318        22   120         0.000000         0.534344         0.000000 0 0 /
+ S      watchdog/8    60       -11.967239      6549     0         0.000000        30.314253         0.000000 0 0 /
+ S     migration/8    61       417.135262        29     0         0.000000         1.194633         0.000000 0 0 /
+ S     ksoftirqd/8    62    623714.038718      2970   120         0.000000         0.426334         0.000000 0 0 /
+ I    kworker/8:0H    64      4401.709655        15   100         0.000000         0.065570         0.000000 0 0 /
+ I     kworker/8:2   368    622333.456888      1436   120         0.000000        72.455070         0.000000 0 0 /
+ I xfs-reclaim/dm-  1582      1141.181745         2   100         0.000000         0.007769         0.000000 0 0 /
+ I    xfs-log/dm-2  1590      1141.184519         2   100         0.000000         0.008459         0.000000 0 0 /
+ S     dbus-daemon  1659    624601.067140      1985   120         0.000000       197.670802         0.000000 0 0 /
+ I    kworker/8:1H  7684    624595.454680       133   100         0.000000         1.463025         0.000000 0 0 /
+ I     kworker/8:0 21700    624596.387175       726   120         0.000000        10.425724         0.000000 0 0 /
+ S            sshd 26590    623183.704649       224   120         0.000000        13.244926         0.000000 0 0 /
+
+cpu#9, 2200.000 MHz
+  .nr_running                    : 0
+  .nr_switches                   : 64538
+  .nr_load_updates               : 0
+  .nr_uninterruptible            : -19
+  .next_balance                  : 4320.848538
+  .curr->pid                     : 0
+  .clock                         : 26181497.783104
+  .clock_task                    : 26181230.735443
+  .avg_idle                      : 1000000
+  .max_idle_balance_cost         : 500000
+
+rt_rq[9]:/
+  .rt_nr_running                 : 0
+  .rt_nr_migratory               : 0
+  .rt_throttled                  : 0
+  .rt_time                       : 0.000000
+  .rt_runtime                    : 950.000000
+
+dl_rq[9]:
+  .dl_nr_running                 : 0
+  .dl_nr_migratory               : 0
+  .dl_bw->bw                     : 996147
+  .dl_bw->total_bw               : 0
+
+runnable tasks:
+ S            task   PID         tree-key  switches  prio     wait-time             sum-exec        sum-sleep
+-------------------------------------------------------------------------------------------------------------
+ S         cpuhp/9    65       403.337236        22   120         0.000000         0.527519         0.000000 1 0 /
+ S      watchdog/9    66       -12.000000      6549     0         0.000000        34.105750         0.000000 1 0 /
+ S     migration/9    67         0.000000        20     0         0.000000         1.198652         0.000000 1 0 /
+ S     ksoftirqd/9    68    160163.838842        17   120         0.000000         0.164932         0.000000 1 0 /
+ I     kworker/9:0    69       877.226670        20   120         0.000000         0.028516         0.000000 1 0 /
+ I    kworker/9:0H    70       403.453112        14   100         0.000000         0.111715         0.000000 1 0 /
+ S      oom_reaper   357        47.314533         2   120         0.000000         0.000000         0.000000 1 0 /
+ I acpi_thermal_pm   535        55.333204         2   100         0.000000         0.008679         0.000000 1 0 /
+ I     mlx5_events  1016        92.820142         2   100         0.000000         0.015458         0.000000 1 0 /
+ S    xfsaild/dm-0  1246    163262.562789     77794   120         0.000000       395.413560         0.000000 1 0 /
+ I     kworker/9:2  1521    163250.563114      1099   120         0.000000         4.218274         0.000000 1 0 /
+ I    xfs-cil/dm-2  1580       403.154169         2   100         0.000000         0.007755         0.000000 1 0 /
+ I    kworker/9:1H  1745    163247.145654        63   100         0.000000         0.909495         0.000000 1 0 /
+
+cpu#10, 2200.000 MHz
+  .nr_running                    : 0
+  .nr_switches                   : 26994
+  .nr_load_updates               : 0
+  .nr_uninterruptible            : -10
+  .next_balance                  : 4320.848535
+  .curr->pid                     : 0
+  .clock                         : 26181497.783803
+  .clock_task                    : 26179722.132636
+  .avg_idle                      : 890212
+  .max_idle_balance_cost         : 500000
+
+cfs_rq[10]:/
+  .exec_clock                    : 0.000000
+  .MIN_vruntime                  : 0.000001
+  .min_vruntime                  : 36289.743908
+  .max_vruntime                  : 0.000001
+  .spread                        : 0.000000
+  .spread0                       : -11500036.449274
+  .nr_spread_over                : 0
+  .nr_running                    : 0
+  .load                          : 0
+  .load_avg                      : 1
+  .runnable_avg                  : 1
+  .util_avg                      : 1
+  .util_est_enqueued             : 0
+  .removed.load_avg              : 0
+  .removed.util_avg              : 0
+  .removed.runnable_avg          : 0
+  .tg_load_avg_contrib           : 0
+  .tg_load_avg                   : 0
+  .throttled                     : 0
+  .throttle_count                : 0
+
+rt_rq[10]:/
+  .rt_nr_running                 : 0
+  .rt_nr_migratory               : 0
+  .rt_throttled                  : 0
+  .rt_time                       : 0.000000
+  .rt_runtime                    : 950.000000
+
+dl_rq[10]:
+  .dl_nr_running                 : 0
+  .dl_nr_migratory               : 0
+  .dl_bw->bw                     : 996147
+  .dl_bw->total_bw               : 0
+
+runnable tasks:
+ S            task   PID         tree-key  switches  prio     wait-time             sum-exec        sum-sleep
+-------------------------------------------------------------------------------------------------------------
+ S        cpuhp/10    71       866.663459        22   120         0.000000         0.511571         0.000000 0 0 /
+ S     watchdog/10    72       -12.000000      6549     0         0.000000        32.654351         0.000000 0 0 /
+ S    migration/10    73       545.139211        13     0         0.000000         1.084679         0.000000 0 0 /
+ S    ksoftirqd/10    74     36277.746656        25   120         0.000000         0.230035         0.000000 0 0 /
+ I   kworker/10:0H    76       919.228600        14   100         0.000000         0.088598         0.000000 0 0 /
+ I     kintegrityd   364        47.247776         2   100         0.000000         0.001387         0.000000 0 0 /
+ I         kblockd   365        59.247770         2   100         0.000000         0.000000         0.000000 0 0 /
+ I    kworker/10:2   370      7423.363635       252   120         0.000000         2.160471         0.000000 0 0 /
+ I      scsi_tmf_5   930       468.024239         2   100         0.000000         0.009095         0.000000 0 0 /
+ S           gdbus  1757     36278.236518       146   120         0.000000        13.581831         0.000000 0 0 /
+ S  systemd-logind  1785     36278.922202      1544   120         0.000000       274.628930         0.000000 0 0 /
+ I   kworker/10:1H  2162     16256.396448        33   100         0.000000         0.450055         0.000000 0 0 /
+ S            sshd 17788     36288.570734      3254   120         0.000000       144.395794         0.000000 0 0 /
+ I    kworker/10:0 21701     36278.101333       778   120         0.000000         4.632323         0.000000 0 0 /
+
+cpu#11, 2200.000 MHz
+  .nr_running                    : 0
+  .nr_switches                   : 44430
+  .nr_load_updates               : 0
+  .nr_uninterruptible            : -1
+  .next_balance                  : 4320.848537
+  .curr->pid                     : 0
+  .clock                         : 26181496.820016
+  .clock_task                    : 26181326.053426
+  .avg_idle                      : 1000000
+  .max_idle_balance_cost         : 500000
+
+cfs_rq[11]:/
+  .exec_clock                    : 0.000000
+  .MIN_vruntime                  : 0.000001
+  .min_vruntime                  : 243143.558926
+  .max_vruntime                  : 0.000001
+  .spread                        : 0.000000
+  .spread0                       : -11293182.634256
+  .nr_spread_over                : 0
+  .nr_running                    : 0
+  .load                          : 0
+  .load_avg                      : 0
+  .runnable_avg                  : 0
+  .util_avg                      : 0
+  .util_est_enqueued             : 0
+  .removed.load_avg              : 0
+  .removed.util_avg              : 0
+  .removed.runnable_avg          : 0
+  .tg_load_avg_contrib           : 0
+  .tg_load_avg                   : 0
+  .throttled                     : 0
+  .throttle_count                : 0
+
+rt_rq[11]:/
+  .rt_nr_running                 : 0
+  .rt_nr_migratory               : 0
+  .rt_throttled                  : 0
+  .rt_time                       : 0.000000
+  .rt_runtime                    : 950.000000
+
+dl_rq[11]:
+  .dl_nr_running                 : 0
+  .dl_nr_migratory               : 0
+  .dl_bw->bw                     : 996147
+  .dl_bw->total_bw               : 0
+
+runnable tasks:
+ S            task   PID         tree-key  switches  prio     wait-time             sum-exec        sum-sleep
+-------------------------------------------------------------------------------------------------------------
+ S        cpuhp/11    77       285.999577        22   120         0.000000         0.706422         0.000000 1 0 /
+ S     watchdog/11    78       -12.000000      6549     0         0.000000        26.288247         0.000000 1 0 /
+ S    migration/11    79       607.139179        19     0         0.000000         1.184755         0.000000 1 0 /
+ S    ksoftirqd/11    80      1036.142870        17   120         0.000000         0.179716         0.000000 1 0 /
+ I   kworker/11:0H    82       286.026918        14   100         0.000000         0.113661         0.000000 1 0 /
+ I    kworker/11:1   378    243076.184040      1053   120         0.000000         5.069596         0.000000 1 0 /
+ I    kworker/11:2  1647       297.995859         2   120         0.000000         0.008752         0.000000 1 0 /
+ S           tuned  1971    243143.558926      8433   120         0.000000       448.186381         0.000000 1 0 /
+ I   kworker/11:1H  1747      1057.551319         5   100         0.000000         0.027145         0.000000 1 0 /
+ S   rs:main Q:Reg  2181    243076.082634      5683   120         0.000000        41.715003         0.000000 1 0 /
+
+cpu#12, 2200.000 MHz
+  .nr_running                    : 0
+  .nr_switches                   : 43313
+  .nr_load_updates               : 0
+  .nr_uninterruptible            : -28
+  .next_balance                  : 4320.848535
+  .curr->pid                     : 0
+  .clock                         : 26181494.781393
+  .clock_task                    : 26181173.754745
+  .avg_idle                      : 1000000
+  .max_idle_balance_cost         : 500000
+
+rt_rq[12]:/
+  .rt_nr_running                 : 0
+  .rt_nr_migratory               : 0
+  .rt_throttled                  : 0
+  .rt_time                       : 0.000000
+  .rt_runtime                    : 950.000000
+
+dl_rq[12]:
+  .dl_nr_running                 : 0
+  .dl_nr_migratory               : 0
+  .dl_bw->bw                     : 996147
+  .dl_bw->total_bw               : 0
+
+runnable tasks:
+ S            task   PID         tree-key  switches  prio     wait-time             sum-exec        sum-sleep
+-------------------------------------------------------------------------------------------------------------
+ S        cpuhp/12    83       833.420776        22   120         0.000000         0.723884         0.000000 0 0 /
+ S     watchdog/12    84       -12.000000      6549     0         0.000000        35.474806         0.000000 0 0 /
+ S    migration/12    85       671.140958        10     0         0.000000         1.081646         0.000000 0 0 /
+ S    ksoftirqd/12    86    142771.321484        30   120         0.000000         0.268931         0.000000 0 0 /
+ I   kworker/12:0H    88      3099.924109        14   100         0.000000         0.064754         0.000000 0 0 /
+ S       scsi_eh_6   931       108.644674        25   120         0.000000         0.131453         0.000000 0 0 /
+ S      restraintd  6895    146085.997915      4211   120         0.000000       366.129146         0.000000 0 0 /
+ I   kworker/12:1H  7427    146077.651719       714   100         0.000000        11.274427         0.000000 0 0 /
+ I    kworker/12:2 27055    146077.700193       708   120         0.000000         8.893818         0.000000 0 0 /
+ I    kworker/12:0 30663    146086.225376         3   120         0.000000         0.046638         0.000000 0 0 /
+ S          pickup 30698    146089.651334        44   120         0.000000        11.591936         0.000000 0 0 /
+
+cpu#13, 2200.000 MHz
+  .nr_running                    : 0
+  .nr_switches                   : 31032
+  .nr_load_updates               : 0
+  .nr_uninterruptible            : 2
+  .next_balance                  : 4320.848535
+  .curr->pid                     : 0
+  .clock                         : 26181494.781787
+  .clock_task                    : 26181324.027236
+  .avg_idle                      : 1000000
+  .max_idle_balance_cost         : 500000
+
+rt_rq[13]:/
+  .rt_nr_running                 : 0
+  .rt_nr_migratory               : 0
+  .rt_throttled                  : 0
+  .rt_time                       : 0.000000
+  .rt_runtime                    : 950.000000
+
+dl_rq[13]:
+  .dl_nr_running                 : 0
+  .dl_nr_migratory               : 0
+  .dl_bw->bw                     : 996147
+  .dl_bw->total_bw               : 0
+
+runnable tasks:
+ S            task   PID         tree-key  switches  prio     wait-time             sum-exec        sum-sleep
+-------------------------------------------------------------------------------------------------------------
+ S        cpuhp/13    89       410.325971        22   120         0.000000         0.503588         0.000000 1 0 /
+ S     watchdog/13    90       -12.000000      6549     0         0.000000        30.528997         0.000000 1 0 /
+ S    migration/13    91       735.140930        22     0         0.000000         1.197046         0.000000 1 0 /
+ S    ksoftirqd/13    92    171453.064356        26   120         0.000000         0.243154         0.000000 1 0 /
+ I   kworker/13:0H    94       144.367500         8   100         0.000000         0.092104         0.000000 1 0 /
+ S      kcompactd1   360        58.312954         2   120         0.000000         0.000000         0.000000 1 0 /
+ I           kstrp   540        66.560643         2   100         0.000000         0.062094         0.000000 1 0 /
+ I   kworker/13:1H   941    125779.270839        51   100         0.000000         0.325931         0.000000 1 0 /
+ S       scsi_eh_8   976       194.802992        25   120         0.000000        38.472912         0.000000 1 0 /
+ I xfs-eofblocks/d  1584       400.810950         2   100         0.000000         0.008572         0.000000 1 0 /
+ S          auditd  1622    125779.389508        47   116         0.000000         0.839020         0.000000 1 0 /
+ I    kworker/13:2  1632    171453.384669      1677   120         0.000000         9.023878         0.000000 1 0 /
+ S       JS Helper  1763       430.440889         3   120         0.000000         0.108325         0.000000 1 0 /
+ S           crond  6889    171461.215962       466   120         0.000000        30.226371         0.000000 1 0 /
+ S            sshd 26585    139297.975756        46   120         0.000000        20.531262         0.000000 1 0 /
+ I    kworker/13:0 27008    171465.060963         2   120         0.000000         0.051529         0.000000 1 0 /
+
+cpu#14, 2200.000 MHz
+  .nr_running                    : 0
+  .nr_switches                   : 26256
+  .nr_load_updates               : 0
+  .nr_uninterruptible            : -3
+  .next_balance                  : 4320.848539
+  .curr->pid                     : 0
+  .clock                         : 26181498.790123
+  .clock_task                    : 26181320.484319
+  .avg_idle                      : 1000000
+  .max_idle_balance_cost         : 500000
+
+rt_rq[14]:/
+  .rt_nr_running                 : 0
+  .rt_nr_migratory               : 0
+  .rt_throttled                  : 0
+  .rt_time                       : 0.000000
+  .rt_runtime                    : 950.000000
+
+dl_rq[14]:
+  .dl_nr_running                 : 0
+  .dl_nr_migratory               : 0
+  .dl_bw->bw                     : 996147
+  .dl_bw->total_bw               : 0
+
+runnable tasks:
+ S            task   PID         tree-key  switches  prio     wait-time             sum-exec        sum-sleep
+-------------------------------------------------------------------------------------------------------------
+ S        kthreadd     2     71754.678477       836   120         0.000000        24.599977         0.000000 0 0 /
+ S        cpuhp/14    95       722.512889        22   120         0.000000         0.445726         0.000000 0 0 /
+ S     watchdog/14    96       -12.000000      6549     0         0.000000        31.119002         0.000000 0 0 /
+ S    migration/14    97       799.142065        19     0         0.000000         1.159330         0.000000 0 0 /
+ S    ksoftirqd/14    98     71055.894971        47   120         0.000000         1.627067         0.000000 0 0 /
+ I    kworker/14:0    99     71055.540086       540   120         0.000000        26.734771         0.000000 0 0 /
+ I   kworker/14:0H   100      2576.078192        15   100         0.000000         0.091137         0.000000 0 0 /
+ S           gdbus  1738     71761.657977      2026   120         0.000000        67.825002         0.000000 0 0 /
+ S           gmain  6898     70804.576630        10   120         0.000000         0.474934         0.000000 0 0 /
+ I   kworker/14:1H  7423      3189.949943         9   100         0.000000         0.136123         0.000000 0 0 /
+ S          master 17554     71756.816644      1599   120         0.000000        65.049208         0.000000 0 0 /
+ I    kworker/14:1 21703     71754.947180       600   120         0.000000         9.724642         0.000000 0 0 /
+
+cpu#15, 2200.000 MHz
+  .nr_running                    : 0
+  .nr_switches                   : 75901
+  .nr_load_updates               : 0
+  .nr_uninterruptible            : 25
+  .next_balance                  : 4320.848537
+  .curr->pid                     : 0
+  .clock                         : 26181496.820791
+  .clock_task                    : 26181222.495977
+  .avg_idle                      : 1000000
+  .max_idle_balance_cost         : 500000
+
+cfs_rq[15]:/
+  .exec_clock                    : 0.000000
+  .MIN_vruntime                  : 0.000001
+  .min_vruntime                  : 53562.514916
+  .max_vruntime                  : 0.000001
+  .spread                        : 0.000000
+  .spread0                       : -11482764.676299
+  .nr_spread_over                : 0
+  .nr_running                    : 0
+  .load                          : 0
+  .load_avg                      : 0
+  .runnable_avg                  : 0
+  .util_avg                      : 0
+  .util_est_enqueued             : 0
+  .removed.load_avg              : 0
+  .removed.util_avg              : 0
+  .removed.runnable_avg          : 0
+  .tg_load_avg_contrib           : 0
+  .tg_load_avg                   : 0
+  .throttled                     : 0
+  .throttle_count                : 0
+
+rt_rq[15]:/
+  .rt_nr_running                 : 0
+  .rt_nr_migratory               : 0
+  .rt_throttled                  : 0
+  .rt_time                       : 0.000000
+  .rt_runtime                    : 950.000000
+
+dl_rq[15]:
+  .dl_nr_running                 : 0
+  .dl_nr_migratory               : 0
+  .dl_bw->bw                     : 996147
+  .dl_bw->total_bw               : 0
+
+runnable tasks:
+ S            task   PID         tree-key  switches  prio     wait-time             sum-exec        sum-sleep
+-------------------------------------------------------------------------------------------------------------
+ S        cpuhp/15   101       671.561171        22   120         0.000000         0.469953         0.000000 1 0 /
+ S     watchdog/15   102       -12.000000      6549     0         0.000000        26.152377         0.000000 1 0 /
+ S    migration/15   103       863.142074        13     0         0.000000         1.166299         0.000000 1 0 /
+ S    ksoftirqd/15   104     21770.408358        11   120         0.000000         0.070675         0.000000 1 0 /
+ I   kworker/15:0H   106      1387.692154        14   100         0.000000         0.116352         0.000000 1 0 /
+ I    kworker/15:1   382     53516.605011      1299   120         0.000000         9.226598         0.000000 1 0 /
+ I      scsi_tmf_0   837        85.469882         2   100         0.000000         0.008401         0.000000 1 0 /
+ I        sfc_vfdi   910       132.818850         2   100         0.000000         0.010599         0.000000 1 0 /
+ S       scsi_eh_3   922       145.803070        25   120         0.000000         0.224594         0.000000 1 0 /
+ I    kworker/15:2  1350       215.844009         2   120         0.000000         0.049443         0.000000 1 0 /
+ S     dbus-daemon  1721       767.765226         1   120         0.000000         0.012347         0.000000 1 0 /
+ S            sshd  1789     21767.838459        41   120         0.000000        11.232885         0.000000 1 0 /
+ S    in:imjournal  2180     53562.514916     29754   120         0.000000       693.204271         0.000000 1 0 /
+ I   kworker/15:1H  7855      1399.691897         2   100         0.000000         0.047450         0.000000 1 0 /
+
+cpu#16, 2200.000 MHz
+  .nr_running                    : 0
+  .nr_switches                   : 27185
+  .nr_load_updates               : 0
+  .nr_uninterruptible            : 14
+  .next_balance                  : 4320.848539
+  .curr->pid                     : 0
+  .clock                         : 26181498.791095
+  .clock_task                    : 26181259.027249
+  .avg_idle                      : 1000000
+  .max_idle_balance_cost         : 500000
+
+rt_rq[16]:/
+  .rt_nr_running                 : 0
+  .rt_nr_migratory               : 0
+  .rt_throttled                  : 0
+  .rt_time                       : 0.000000
+  .rt_runtime                    : 950.000000
+
+dl_rq[16]:
+  .dl_nr_running                 : 0
+  .dl_nr_migratory               : 0
+  .dl_bw->bw                     : 996147
+  .dl_bw->total_bw               : 0
+
+runnable tasks:
+ S            task   PID         tree-key  switches  prio     wait-time             sum-exec        sum-sleep
+-------------------------------------------------------------------------------------------------------------
+ S        cpuhp/16   107       826.406049        22   120         0.000000         0.671383         0.000000 0 0 /
+ S     watchdog/16   108       -12.000000      6549     0         0.000000        29.703417         0.000000 0 0 /
+ S    migration/16   109       927.142058        13     0         0.000000         1.096945         0.000000 0 0 /
+ S    ksoftirqd/16   110      2159.429860        29   120         0.000000         0.172985         0.000000 0 0 /
+ I   kworker/16:0H   112      1851.942419        14   100         0.000000         0.040609         0.000000 0 0 /
+ I    kworker/16:2  1317      2159.304117        60   120         0.000000         0.592023         0.000000 0 0 /
+ S      irqbalance  1661      6504.728187      2676   120         0.000000      6352.483680         0.000000 0 0 /
+ I   kworker/16:1H  7424      1863.942275         2   100         0.000000         0.009318         0.000000 0 0 /
+ I    kworker/16:0 21704      6491.260748      2468   120         0.000000        36.030597         0.000000 0 0 /
+
+cpu#17, 2200.000 MHz
+  .nr_running                    : 0
+  .nr_switches                   : 32021
+  .nr_load_updates               : 0
+  .nr_uninterruptible            : 9
+  .next_balance                  : 4320.848538
+  .curr->pid                     : 0
+  .clock                         : 26181497.785405
+  .clock_task                    : 26181342.114627
+  .avg_idle                      : 1000000
+  .max_idle_balance_cost         : 500000
+
+rt_rq[17]:/
+  .rt_nr_running                 : 0
+  .rt_nr_migratory               : 0
+  .rt_throttled                  : 0
+  .rt_time                       : 0.000000
+  .rt_runtime                    : 950.000000
+
+dl_rq[17]:
+  .dl_nr_running                 : 0
+  .dl_nr_migratory               : 0
+  .dl_bw->bw                     : 996147
+  .dl_bw->total_bw               : 0
+
+runnable tasks:
+ S            task   PID         tree-key  switches  prio     wait-time             sum-exec        sum-sleep
+-------------------------------------------------------------------------------------------------------------
+ S        cpuhp/17   113       581.961437        22   120         0.000000         0.596454         0.000000 1 0 /
+ S     watchdog/17   114       -12.000000      6549     0         0.000000        29.632329         0.000000 1 0 /
+ S    migration/17   115       989.142026        17     0         0.000000         1.170677         0.000000 1 0 /
+ S    ksoftirqd/17   116      2291.671408        16   120         0.000000         0.151152         0.000000 1 0 /
+ I   kworker/17:0H   118      2292.353009        14   100         0.000000         0.104333         0.000000 1 0 /
+ S            ksmd   361        58.516978         2   125         0.000000         0.001700         0.000000 1 0 /
+ I    kworker/17:1   384      4844.456303       997   120         0.000000        14.027917         0.000000 1 0 /
+ I      scsi_tmf_2   921       172.305573         2   100         0.000000         0.008219         0.000000 1 0 /
+ I mlx5_cmd_0000:3  1027       275.505681         2   100         0.000000         0.007361         0.000000 1 0 /
+ I     mlx5_esw_wq  1035       288.826678         2   100         0.000000         0.006322         0.000000 1 0 /
+ I        kdmflush  1202       342.358306         2   100         0.000000         0.017366         0.000000 1 0 /
+ I    kworker/17:2  1375      1581.769526         5   120         0.000000         0.057879         0.000000 1 0 /
+ S       JS Helper  1766       592.771202         3   120         0.000000         0.039154         0.000000 1 0 /
+ S        sssd_nss  1775      4862.028684      7911   120         0.000000       464.930455         0.000000 1 0 /
+ I   kworker/17:1H  7856      2328.866535        82   100         0.000000         0.292383         0.000000 1 0 /
+ S            bash 26591      4802.938553        79   120         0.000000        12.096895         0.000000 1 0 /
+
+cpu#18, 2200.000 MHz
+  .nr_running                    : 0
+  .nr_switches                   : 24619
+  .nr_load_updates               : 0
+  .nr_uninterruptible            : 8
+  .next_balance                  : 4320.848539
+  .curr->pid                     : 0
+  .clock                         : 26181498.792229
+  .clock_task                    : 26181172.673946
+  .avg_idle                      : 1000000
+  .max_idle_balance_cost         : 500000
+
+rt_rq[18]:/
+  .rt_nr_running                 : 0
+  .rt_nr_migratory               : 0
+  .rt_throttled                  : 0
+  .rt_time                       : 0.000000
+  .rt_runtime                    : 950.000000
+
+dl_rq[18]:
+  .dl_nr_running                 : 0
+  .dl_nr_migratory               : 0
+  .dl_bw->bw                     : 996147
+  .dl_bw->total_bw               : 0
+
+runnable tasks:
+ S            task   PID         tree-key  switches  prio     wait-time             sum-exec        sum-sleep
+-------------------------------------------------------------------------------------------------------------
+ S        cpuhp/18   119       649.078220        22   120         0.000000         0.715316         0.000000 0 0 /
+ S     watchdog/18   120       -12.000000      6549     0         0.000000        28.959256         0.000000 0 0 /
+ S    migration/18   121      1053.143740         9     0         0.000000         1.061871         0.000000 0 0 /
+ S    ksoftirqd/18   122     93308.256014        63   120         0.000000         0.279454         0.000000 0 0 /
+ I   kworker/18:0H   124     92502.563755        15   100         0.000000         0.056065         0.000000 0 0 /
+ I    kworker/18:2  1386     92995.783386       202   120         0.000000         1.472979         0.000000 0 0 /
+ S  NetworkManager  1673     93321.519932     11128   120         0.000000      1269.815913         0.000000 0 0 /
+ S         systemd  7443     93294.868527       103   120         0.000000        44.929933         0.000000 0 0 /
+ I   kworker/18:1H 17746     93308.995022        28   100         0.000000         0.351233         0.000000 0 0 /
+ I    kworker/18:0 21705     93309.536550       127   120         0.000000         2.400578         0.000000 0 0 /
+ I   kworker/u97:2 31189     93320.256014        42   120         0.000000         0.229711         0.000000 0 0 /
+
+cpu#19, 2200.000 MHz
+  .nr_running                    : 0
+  .nr_switches                   : 36240
+  .nr_load_updates               : 0
+  .nr_uninterruptible            : -26
+  .next_balance                  : 4320.848537
+  .curr->pid                     : 0
+  .clock                         : 26181496.823011
+  .clock_task                    : 26181299.762882
+  .avg_idle                      : 1000000
+  .max_idle_balance_cost         : 500000
+
+rt_rq[19]:/
+  .rt_nr_running                 : 0
+  .rt_nr_migratory               : 0
+  .rt_throttled                  : 0
+  .rt_time                       : 0.000000
+  .rt_runtime                    : 950.000000
+
+dl_rq[19]:
+  .dl_nr_running                 : 0
+  .dl_nr_migratory               : 0
+  .dl_bw->bw                     : 996147
+  .dl_bw->total_bw               : 0
+
+runnable tasks:
+ S            task   PID         tree-key  switches  prio     wait-time             sum-exec        sum-sleep
+-------------------------------------------------------------------------------------------------------------
+ S        cpuhp/19   125       670.445845        22   120         0.000000         0.681968         0.000000 1 0 /
+ S     watchdog/19   126       -12.000000      6549     0         0.000000        32.892966         0.000000 1 0 /
+ S    migration/19   127      1117.143745        19     0         0.000000         1.181547         0.000000 1 0 /
+ S    ksoftirqd/19   128      1112.873213        10   120         0.000000         0.069752         0.000000 1 0 /
+ I    kworker/19:0   129       670.410450        17   120         0.000000         0.023687         0.000000 1 0 /
+ I   kworker/19:0H   130       995.808595        14   100         0.000000         0.158993         0.000000 1 0 /
+ I    kworker/19:2  1138    347895.652952       899   120         0.000000         9.592720         0.000000 1 0 /
+ S       JS Helper  1767       842.819878         4   120         0.000000         0.064343         0.000000 1 0 /
+ S           tuned  1744    347895.663965       361   120         0.000000       145.632497         0.000000 1 0 /
+ I   kworker/19:1H  2158     72041.977803        97   100         0.000000         0.302415         0.000000 1 0 /
+
+cpu#20, 2200.000 MHz
+  .nr_running                    : 0
+  .nr_switches                   : 22272
+  .nr_load_updates               : 0
+  .nr_uninterruptible            : -9
+  .next_balance                  : 4320.848539
+  .curr->pid                     : 0
+  .clock                         : 26181498.793519
+  .clock_task                    : 26181357.171462
+  .avg_idle                      : 1000000
+  .max_idle_balance_cost         : 500000
+
+rt_rq[20]:/
+  .rt_nr_running                 : 0
+  .rt_nr_migratory               : 0
+  .rt_throttled                  : 0
+  .rt_time                       : 0.000000
+  .rt_runtime                    : 950.000000
+
+dl_rq[20]:
+  .dl_nr_running                 : 0
+  .dl_nr_migratory               : 0
+  .dl_bw->bw                     : 996147
+  .dl_bw->total_bw               : 0
+
+runnable tasks:
+ S            task   PID         tree-key  switches  prio     wait-time             sum-exec        sum-sleep
+-------------------------------------------------------------------------------------------------------------
+ S        cpuhp/20   131       668.105724        22   120         0.000000         0.722877         0.000000 0 0 /
+ S     watchdog/20   132       -12.000000      6549     0         0.000000        33.872520         0.000000 0 0 /
+ S    migration/20   133      1181.144440        11     0         0.000000         1.069770         0.000000 0 0 /
+ S    ksoftirqd/20   134     54506.886522        25   120         0.000000         0.517372         0.000000 0 0 /
+ I   kworker/20:0H   136      1055.916079        15   100         0.000000         0.054009         0.000000 0 0 /
+ I     mlx5_lag_mp  1044       116.297047         2   100         0.000000         0.012860         0.000000 0 0 /
+ S         sssd_be  1773     54550.504346      6173   120         0.000000       446.964554         0.000000 0 0 /
+ I    kworker/20:2  2192     50126.627135       187   120         0.000000         2.457460         0.000000 0 0 /
+ I   kworker/20:1H  5735     54484.998122         9   100         0.000000         0.187913         0.000000 0 0 /
+ I    kworker/20:0 21706     54550.107506        58   120         0.000000         0.691950         0.000000 0 0 /
+
+cpu#21, 2200.000 MHz
+  .nr_running                    : 0
+  .nr_switches                   : 23339
+  .nr_load_updates               : 0
+  .nr_uninterruptible            : 18
+  .next_balance                  : 4320.848539
+  .curr->pid                     : 0
+  .clock                         : 26181498.794495
+  .clock_task                    : 26181386.428748
+  .avg_idle                      : 1000000
+  .max_idle_balance_cost         : 500000
+
+rt_rq[21]:/
+  .rt_nr_running                 : 0
+  .rt_nr_migratory               : 0
+  .rt_throttled                  : 0
+  .rt_time                       : 0.000000
+  .rt_runtime                    : 950.000000
+
+dl_rq[21]:
+  .dl_nr_running                 : 0
+  .dl_nr_migratory               : 0
+  .dl_bw->bw                     : 996147
+  .dl_bw->total_bw               : 0
+
+runnable tasks:
+ S            task   PID         tree-key  switches  prio     wait-time             sum-exec        sum-sleep
+-------------------------------------------------------------------------------------------------------------
+ S        cpuhp/21   137       601.535271        22   120         0.000000         0.639120         0.000000 1 0 /
+ S     watchdog/21   138       -12.000000      6549     0         0.000000        21.531914         0.000000 1 0 /
+ S    migration/21   139      1245.144439        13     0         0.000000         1.134442         0.000000 1 0 /
+ S    ksoftirqd/21   140      2553.383847        14   120         0.000000         0.178037         0.000000 1 0 /
+ I   kworker/21:0H   142       192.473661         8   100         0.000000         1.034155         0.000000 1 0 /
+ I  blkcg_punt_bio   366        59.696634         2   100         0.000000         0.001334         0.000000 1 0 /
+ I    kworker/21:1   388       348.722957        70   120         0.000000         9.505416         0.000000 1 0 /
+ I         ata_sff   905       134.180743         2   100         0.000000         0.007873         0.000000 1 0 /
+ I    kworker/21:2   924     37248.515461       419   120         0.000000         2.717782         0.000000 1 0 /
+ I   kworker/21:1H   933      2576.533475        71   100         0.000000         0.843557         0.000000 1 0 /
+ I        ttm_swap   974       256.691566         2   100         0.000000         0.013244         0.000000 1 0 /
+ S      scsi_eh_11   983       275.362709        25   120         0.000000        17.188059         0.000000 1 0 /
+ I mlx5_page_alloc  1026       270.843435         2   100         0.000000         0.006928         0.000000 1 0 /
+ I  mlx5_fw_tracer  1036       287.431511         2   100         0.000000         0.005671         0.000000 1 0 /
+ I xfs-reclaim/dm-  1241       372.721539         2   100         0.000000         0.006680         0.000000 1 0 /
+ I   xfs-conv/sda1  1579       590.596600         2   100         0.000000         0.008826         0.000000 1 0 /
+ S       JS Helper  1764       678.712438         2   120         0.000000         0.070008         0.000000 1 0 /
+ S       JS Helper  1770       690.675523         3   120         0.000000         0.028450         0.000000 1 0 /
+
+cpu#22, 2200.000 MHz
+  .nr_running                    : 0
+  .nr_switches                   : 48914
+  .nr_load_updates               : 0
+  .nr_uninterruptible            : -7
+  .next_balance                  : 4320.848538
+  .curr->pid                     : 0
+  .clock                         : 26181498.795405
+  .clock_task                    : 26181221.996601
+  .avg_idle                      : 1000000
+  .max_idle_balance_cost         : 500000
+
+cfs_rq[22]:/
+  .exec_clock                    : 0.000000
+  .MIN_vruntime                  : 0.000001
+  .min_vruntime                  : 88977.186260
+  .max_vruntime                  : 0.000001
+  .spread                        : 0.000000
+  .spread0                       : -11447350.004955
+  .nr_spread_over                : 0
+  .nr_running                    : 0
+  .load                          : 0
+  .load_avg                      : 0
+  .runnable_avg                  : 0
+  .util_avg                      : 0
+  .util_est_enqueued             : 0
+  .removed.load_avg              : 0
+  .removed.util_avg              : 0
+  .removed.runnable_avg          : 0
+  .tg_load_avg_contrib           : 0
+  .tg_load_avg                   : 0
+  .throttled                     : 0
+  .throttle_count                : 0
+
+rt_rq[22]:/
+  .rt_nr_running                 : 0
+  .rt_nr_migratory               : 0
+  .rt_throttled                  : 0
+  .rt_time                       : 0.000000
+  .rt_runtime                    : 950.000000
+
+dl_rq[22]:
+  .dl_nr_running                 : 0
+  .dl_nr_migratory               : 0
+  .dl_bw->bw                     : 996147
+  .dl_bw->total_bw               : 0
+
+runnable tasks:
+ S            task   PID         tree-key  switches  prio     wait-time             sum-exec        sum-sleep
+-------------------------------------------------------------------------------------------------------------
+ I       rcu_sched    12     88977.186260    184564   120         0.000000      2486.428752         0.000000 0 0 /
+ S        cpuhp/22   143       583.086910        22   120         0.000000         0.476903         0.000000 0 0 /
+ S     watchdog/22   144       -12.000000      6549     0         0.000000        32.249941         0.000000 0 0 /
+ S    migration/22   145      1309.145281        12     0         0.000000         1.077093         0.000000 0 0 /
+ S    ksoftirqd/22   146     88645.538047        53   120         0.000000         0.486934         0.000000 0 0 /
+ I   kworker/22:0H   148      2903.761111        13   100         0.000000         0.078727         0.000000 0 0 /
+ I    kworker/22:2   734     88645.348022       611   120         0.000000         5.767657         0.000000 0 0 /
+ S          agetty  1867       922.071836        19   120         0.000000         4.097996         0.000000 0 0 /
+ S        rsyslogd  2171     88921.968944        61   120         0.000000         5.731203         0.000000 0 0 /
+ I   kworker/22:1H  7704     88606.130341        12   100         0.000000         0.107050         0.000000 0 0 /
+ I    kworker/22:0 21707     88696.608456        27   120         0.000000         0.596291         0.000000 0 0 /
+
+cpu#23, 2200.000 MHz
+  .nr_running                    : 0
+  .nr_switches                   : 18625
+  .nr_load_updates               : 0
+  .nr_uninterruptible            : 15
+  .next_balance                  : 4320.848539
+  .curr->pid                     : 0
+  .clock                         : 26181498.796373
+  .clock_task                    : 26181411.109931
+  .avg_idle                      : 1000000
+  .max_idle_balance_cost         : 500000
+
+rt_rq[23]:/
+  .rt_nr_running                 : 0
+  .rt_nr_migratory               : 0
+  .rt_throttled                  : 0
+  .rt_time                       : 0.000000
+  .rt_runtime                    : 950.000000
+
+dl_rq[23]:
+  .dl_nr_running                 : 0
+  .dl_nr_migratory               : 0
+  .dl_bw->bw                     : 996147
+  .dl_bw->total_bw               : 0
+
+runnable tasks:
+ S            task   PID         tree-key  switches  prio     wait-time             sum-exec        sum-sleep
+-------------------------------------------------------------------------------------------------------------
+ S        cpuhp/23   149       496.913379        22   120         0.000000         0.455321         0.000000 1 0 /
+ S     watchdog/23   150       -12.000000      6549     0         0.000000        21.064360         0.000000 1 0 /
+ S    migration/23   151      1371.145249        10     0         0.000000         1.114088         0.000000 1 0 /
+ S    ksoftirqd/23   152      3710.663240        22   120         0.000000         1.300672         0.000000 1 0 /
+ I   kworker/23:0H   154       500.319318        14   100         0.000000         0.138347         0.000000 1 0 /
+ I    kworker/23:1   390     36567.515537       169   120         0.000000        17.452200         0.000000 1 0 /
+ I       sfc_reset   911       192.663738         2   100         0.000000         0.006884         0.000000 1 0 /
+ S       scsi_eh_2   920       209.091958        25   120         0.000000         0.153932         0.000000 1 0 /
+ S      scsi_eh_12   986       236.665869        25   120         0.000000         6.141232         0.000000 1 0 /
+ I    mlx5_hv_vhca  1020       243.085713         2   100         0.000000         0.006206         0.000000 1 0 /
+ I xfs-eofblocks/d  1242       279.817810         2   100         0.000000         0.007159         0.000000 1 0 /
+ I   xfs-conv/dm-2  1578       478.748213         2   100         0.000000         0.009233         0.000000 1 0 /
+ I   kworker/23:1H  1653     36628.652718        17   100         0.000000         0.154460         0.000000 1 0 /
+ S       JS Helper  1765       500.426302         3   120         0.000000         0.114639         0.000000 1 0 /
+ I    kworker/23:3  2161     36813.840105       165   120         0.000000         0.810498         0.000000 1 0 /
+
+cpu#24, 2200.000 MHz
+  .nr_running                    : 0
+  .nr_switches                   : 36576
+  .nr_load_updates               : 0
+  .nr_uninterruptible            : 6
+  .next_balance                  : 4320.848539
+  .curr->pid                     : 0
+  .clock                         : 26181498.797189
+  .clock_task                    : 26181266.369207
+  .avg_idle                      : 1000000
+  .max_idle_balance_cost         : 500000
+
+rt_rq[24]:/
+  .rt_nr_running                 : 0
+  .rt_nr_migratory               : 0
+  .rt_throttled                  : 0
+  .rt_time                       : 0.000000
+  .rt_runtime                    : 950.000000
+
+dl_rq[24]:
+  .dl_nr_running                 : 0
+  .dl_nr_migratory               : 0
+  .dl_bw->bw                     : 996147
+  .dl_bw->total_bw               : 0
+
+runnable tasks:
+ S            task   PID         tree-key  switches  prio     wait-time             sum-exec        sum-sleep
+-------------------------------------------------------------------------------------------------------------
+ S        cpuhp/24   155       597.459497        22   120         0.000000         0.610815         0.000000 0 0 /
+ S     watchdog/24   156       -12.000000      6548     0         0.000000        21.508347         0.000000 0 0 /
+ S    migration/24   157      1435.147410        16     0         0.000000         1.135145         0.000000 0 0 /
+ S    ksoftirqd/24   158     30955.439707        53   120         0.000000         2.813229         0.000000 0 0 /
+ I   kworker/24:0H   160       331.696212        10   100         0.000000         0.035792         0.000000 0 0 /
+ I   kworker/24:1H  1389     30881.787883        30   100         0.000000         0.380947         0.000000 0 0 /
+ I    kworker/24:2 21065     31033.434903        75   120         0.000000         1.245716         0.000000 0 0 /
+ I    kworker/24:0 21708     30894.452202         2   120         0.000000         0.047320         0.000000 0 0 /
+
+cpu#25, 2200.000 MHz
+  .nr_running                    : 0
+  .nr_switches                   : 301563
+  .nr_load_updates               : 0
+  .nr_uninterruptible            : 32
+  .next_balance                  : 4320.848578
+  .curr->pid                     : 0
+  .clock                         : 26181493.780646
+  .clock_task                    : 26180538.204280
+  .avg_idle                      : 1000000
+  .max_idle_balance_cost         : 500000
+
+cfs_rq[25]:/
+  .exec_clock                    : 0.000000
+  .MIN_vruntime                  : 0.000001
+  .min_vruntime                  : 62663.753042
+  .max_vruntime                  : 0.000001
+  .spread                        : 0.000000
+  .spread0                       : -11473663.438173
+  .nr_spread_over                : 0
+  .nr_running                    : 0
+  .load                          : 0
+  .load_avg                      : 0
+  .runnable_avg                  : 0
+  .util_avg                      : 0
+  .util_est_enqueued             : 0
+  .removed.load_avg              : 0
+  .removed.util_avg              : 0
+  .removed.runnable_avg          : 0
+  .tg_load_avg_contrib           : 0
+  .tg_load_avg                   : 0
+  .throttled                     : 0
+  .throttle_count                : 0
+
+rt_rq[25]:/
+  .rt_nr_running                 : 0
+  .rt_nr_migratory               : 0
+  .rt_throttled                  : 0
+  .rt_time                       : 0.000000
+  .rt_runtime                    : 950.000000
+
+dl_rq[25]:
+  .dl_nr_running                 : 0
+  .dl_nr_migratory               : 0
+  .dl_bw->bw                     : 996147
+  .dl_bw->total_bw               : 0
+
+runnable tasks:
+ S            task   PID         tree-key  switches  prio     wait-time             sum-exec        sum-sleep
+-------------------------------------------------------------------------------------------------------------
+ S        cpuhp/25   161       415.988924        22   120         0.000000         0.445881         0.000000 1 0 /
+ S     watchdog/25   162       -12.000000      6548     0         0.000000        24.054242         0.000000 1 0 /
+ S    migration/25   163      1503.147378        70     0         0.000000         1.499654         0.000000 1 0 /
+ S    ksoftirqd/25   164     30931.743403        48   120         0.000000         0.814250         0.000000 1 0 /
+ I   kworker/25:0H   166       416.315969        14   100         0.000000         0.040552         0.000000 1 0 /
+ I   ipv6_addrconf   539        79.267170         2   100         0.000000         0.008381         0.000000 1 0 /
+ I mlx5_page_alloc   915       133.508230         2   100         0.000000         0.015174         0.000000 1 0 /
+ I        kdmflush  1193       214.050350         2   100         0.000000         0.015051         0.000000 1 0 /
+ I xfs-eofblocks/s  1585       409.402775         2   100         0.000000         0.008407         0.000000 1 0 /
+ I   kworker/25:1H  1654      9757.260388        54   100         0.000000         0.693707         0.000000 1 0 /
+ S       JS Helper  1768       450.636158         3   120         0.000000         0.176638         0.000000 1 0 /
+ S           tuned  1975       886.984429         1   120         0.000000         0.117999         0.000000 1 0 /
+ I    kworker/25:2 21725      6882.225658         5   120         0.000000         0.202354         0.000000 1 0 /
+ I    kworker/25:3 21751     62651.758174      7538   120         0.000000        29.618218         0.000000 1 0 /
+ I   kworker/u98:0 26592      9782.204656        40   120         0.000000         2.047651         0.000000 1 0 /
+ S           sleep 31580     62663.753042         1   120         0.000000         0.484891         0.000000 1 0 /
+
+cpu#26, 2200.000 MHz
+  .nr_running                    : 1
+  .nr_switches                   : 33470
+  .nr_load_updates               : 0
+  .nr_uninterruptible            : -9
+  .next_balance                  : 4320.848588
+  .curr->pid                     : 27031
+  .clock                         : 26181498.776984
+  .clock_task                    : 26162435.143190
+  .avg_idle                      : 1000000
+  .max_idle_balance_cost         : 500000
+
+cfs_rq[26]:/
+  .exec_clock                    : 0.000000
+  .MIN_vruntime                  : 0.000001
+  .min_vruntime                  : 10796692.139798
+  .max_vruntime                  : 0.000001
+  .spread                        : 0.000000
+  .spread0                       : -739635.051417
+  .nr_spread_over                : 0
+  .nr_running                    : 1
+  .load                          : 1048576
+  .load_avg                      : 1024
+  .runnable_avg                  : 1024
+  .util_avg                      : 1024
+  .util_est_enqueued             : 513
+  .removed.load_avg              : 0
+  .removed.util_avg              : 0
+  .removed.runnable_avg          : 0
+  .tg_load_avg_contrib           : 0
+  .tg_load_avg                   : 0
+  .throttled                     : 0
+  .throttle_count                : 0
+
+rt_rq[26]:/
+  .rt_nr_running                 : 0
+  .rt_nr_migratory               : 0
+  .rt_throttled                  : 0
+  .rt_time                       : 0.000000
+  .rt_runtime                    : 950.000000
+
+dl_rq[26]:
+  .dl_nr_running                 : 0
+  .dl_nr_migratory               : 0
+  .dl_bw->bw                     : 996147
+  .dl_bw->total_bw               : 0
+
+runnable tasks:
+ S            task   PID         tree-key  switches  prio     wait-time             sum-exec        sum-sleep
+-------------------------------------------------------------------------------------------------------------
+ S        cpuhp/26   167       714.515368        22   120         0.000000         0.586013         0.000000 0 0 /
+ S     watchdog/26   168       -12.000000      6548     0         0.000000        20.078124         0.000000 0 0 /
+ S    migration/26   169      1571.147354        16     0         0.000000         1.132823         0.000000 0 0 /
+ S    ksoftirqd/26   170      7423.984503        26   120         0.000000         0.710761         0.000000 0 0 /
+ I    kworker/26:0   171      7411.125664       377   120         0.000000         5.735485         0.000000 0 0 /
+ I   kworker/26:0H   172      6653.528749        15   100         0.000000         0.065352         0.000000 0 0 /
+ S       scsi_eh_5   929       167.540828        25   120         0.000000         0.136488         0.000000 0 0 /
+ I     scsi_tmf_11   984       179.491996         2   100         0.000000         0.007971         0.000000 0 0 /
+ I   kworker/26:1H  7411      6665.528378         2   100         0.000000         0.042255         0.000000 0 0 /
+ S        (sd-pam)  7459      6690.701151         1   120         0.000000         0.246434         0.000000 0 0 /
+ I    kworker/26:1 21727      7528.589877        55   120         0.000000         1.253059         0.000000 0 0 /
+>R          stress 27031  10796692.139798      2780   120         0.000000  11063853.476777         0.000000 0 0 /
+
+cpu#27, 2200.000 MHz
+  .nr_running                    : 0
+  .nr_switches                   : 241897
+  .nr_load_updates               : 0
+  .nr_uninterruptible            : -22
+  .next_balance                  : 4320.848539
+  .curr->pid                     : 0
+  .clock                         : 26181498.798101
+  .clock_task                    : 26180581.622497
+  .avg_idle                      : 1000000
+  .max_idle_balance_cost         : 500000
+
+rt_rq[27]:/
+  .rt_nr_running                 : 0
+  .rt_nr_migratory               : 0
+  .rt_throttled                  : 0
+  .rt_time                       : 0.000000
+  .rt_runtime                    : 950.000000
+
+dl_rq[27]:
+  .dl_nr_running                 : 0
+  .dl_nr_migratory               : 0
+  .dl_bw->bw                     : 996147
+  .dl_bw->total_bw               : 0
+
+runnable tasks:
+ S            task   PID         tree-key  switches  prio     wait-time             sum-exec        sum-sleep
+-------------------------------------------------------------------------------------------------------------
+ S        cpuhp/27   173      1056.759622        22   120         0.000000         0.253308         0.000000 1 0 /
+ S     watchdog/27   174       -12.000000      6548     0         0.000000        41.586526         0.000000 1 0 /
+ S    migration/27   175      1639.147364        19     0         0.000000         1.136107         0.000000 1 0 /
+ S    ksoftirqd/27   176     76416.480444        24   120         0.000000         0.252998         0.000000 1 0 /
+ I   kworker/27:0H   178      3718.468444        14   100         0.000000         0.055939         0.000000 1 0 /
+ I    kworker/27:2   538     95857.955352      1464   120         0.000000        13.401085         0.000000 1 0 /
+ S       JS Helper  1769      1087.631714         3   120         0.000000         0.114643         0.000000 1 0 /
+ I   kworker/27:1H  7830     82083.190938        55   100         0.000000         0.353208         0.000000 1 0 /
+ I    kworker/27:0 21726     76496.800981         6   120         0.000000         0.090901         0.000000 1 0 /
+
+cpu#28, 2200.000 MHz
+  .nr_running                    : 0
+  .nr_switches                   : 26037
+  .nr_load_updates               : 0
+  .nr_uninterruptible            : -17
+  .next_balance                  : 4320.848539
+  .curr->pid                     : 0
+  .clock                         : 26181498.798771
+  .clock_task                    : 26181159.940868
+  .avg_idle                      : 1000000
+  .max_idle_balance_cost         : 500000
+
+rt_rq[28]:/
+  .rt_nr_running                 : 0
+  .rt_nr_migratory               : 0
+  .rt_throttled                  : 0
+  .rt_time                       : 0.000000
+  .rt_runtime                    : 950.000000
+
+dl_rq[28]:
+  .dl_nr_running                 : 0
+  .dl_nr_migratory               : 0
+  .dl_bw->bw                     : 996147
+  .dl_bw->total_bw               : 0
+
+runnable tasks:
+ S            task   PID         tree-key  switches  prio     wait-time             sum-exec        sum-sleep
+-------------------------------------------------------------------------------------------------------------
+ S        cpuhp/28   179       577.162945        22   120         0.000000         0.522199         0.000000 0 0 /
+ S     watchdog/28   180       -12.000000      6548     0         0.000000        36.129492         0.000000 0 0 /
+ S    migration/28   181      1707.147339        15     0         0.000000         1.092758         0.000000 0 0 /
+ S    ksoftirqd/28   182    428091.077041       262   120         0.000000    106056.198087         0.000000 0 0 /
+ I   kworker/28:0H   184       440.796352        11   100         0.000000         0.063303         0.000000 0 0 /
+ I     scsi_tmf_12   987       231.910654         2   100         0.000000         0.005979         0.000000 0 0 /
+ I         mlx5_fc  1039       239.935144         2   100         0.000000         0.006736         0.000000 0 0 /
+ I   xfs_mru_cache  1233       316.394707         2   100         0.000000         0.006249         0.000000 0 0 /
+ I   kworker/28:1H  1525    428068.922625        79   100         0.000000         0.847651         0.000000 0 0 /
+ I    kworker/28:3  1683    428093.324166       877   120         0.000000         6.089698         0.000000 0 0 /
+ S       rhsmcertd  1758    428091.461005         7   120         0.000000         1.746085         0.000000 0 0 /
+ I    kworker/28:0 21728    427143.376010        28   120         0.000000         0.155152         0.000000 0 0 /
+
+cpu#29, 2200.000 MHz
+  .nr_running                    : 0
+  .nr_switches                   : 77995
+  .nr_load_updates               : 0
+  .nr_uninterruptible            : 0
+  .next_balance                  : 4320.848539
+  .curr->pid                     : 0
+  .clock                         : 26181498.799535
+  .clock_task                    : 26181298.655013
+  .avg_idle                      : 1000000
+  .max_idle_balance_cost         : 500000
+
+rt_rq[29]:/
+  .rt_nr_running                 : 0
+  .rt_nr_migratory               : 0
+  .rt_throttled                  : 0
+  .rt_time                       : 0.000000
+  .rt_runtime                    : 950.000000
+
+dl_rq[29]:
+  .dl_nr_running                 : 0
+  .dl_nr_migratory               : 0
+  .dl_bw->bw                     : 996147
+  .dl_bw->total_bw               : 0
+
+runnable tasks:
+ S            task   PID         tree-key  switches  prio     wait-time             sum-exec        sum-sleep
+-------------------------------------------------------------------------------------------------------------
+ S        cpuhp/29   185       510.384280        22   120         0.000000         0.476587         0.000000 1 0 /
+ S     watchdog/29   186       -12.000000      6548     0         0.000000        36.415875         0.000000 1 0 /
+ S    migration/29   187      1775.147351        14     0         0.000000         1.131381         0.000000 1 0 /
+ S    ksoftirqd/29   188    142738.210673        26   120         0.000000         0.247227         0.000000 1 0 /
+ I   kworker/29:0H   190      2219.559944        14   100         0.000000         0.081917         0.000000 1 0 /
+ S         kauditd   349    145174.840076       434   120         0.000000        36.045934         0.000000 1 0 /
+ S      scsi_eh_10   981       135.841638        25   120         0.000000        27.941706         0.000000 1 0 /
+ I    kworker/29:2   997    144387.930343       503   120         0.000000         3.822981         0.000000 1 0 /
+ I mlx5_health0000  1025       120.304607         2   100         0.000000         0.007008         0.000000 1 0 /
+ S           tuned  2083      1185.219436         3   120         0.000000         0.636762         0.000000 1 0 /
+ I   kworker/29:1H  7814    145113.882943       135   100         0.000000         0.769482         0.000000 1 0 /
+ I    kworker/29:1 21858    145174.819773        37   120         0.000000         0.277264         0.000000 1 0 /
+
+cpu#30, 2200.000 MHz
+  .nr_running                    : 0
+  .nr_switches                   : 39978
+  .nr_load_updates               : 0
+  .nr_uninterruptible            : 11
+  .next_balance                  : 4320.848539
+  .curr->pid                     : 0
+  .clock                         : 26181494.785976
+  .clock_task                    : 26181230.671636
+  .avg_idle                      : 1000000
+  .max_idle_balance_cost         : 500000
+
+rt_rq[30]:/
+  .rt_nr_running                 : 0
+  .rt_nr_migratory               : 0
+  .rt_throttled                  : 0
+  .rt_time                       : 0.000000
+  .rt_runtime                    : 950.000000
+
+dl_rq[30]:
+  .dl_nr_running                 : 0
+  .dl_nr_migratory               : 0
+  .dl_bw->bw                     : 996147
+  .dl_bw->total_bw               : 0
+
+runnable tasks:
+ S            task   PID         tree-key  switches  prio     wait-time             sum-exec        sum-sleep
+-------------------------------------------------------------------------------------------------------------
+ S        cpuhp/30   191       707.263854        22   120         0.000000         0.624591         0.000000 0 0 /
+ S     watchdog/30   192       -12.000000      6548     0         0.000000        30.968756         0.000000 0 0 /
+ S    migration/30   193      1843.147327        15     0         0.000000         1.089031         0.000000 0 0 /
+ S    ksoftirqd/30   194    332783.016435       198   120         0.000000         0.104214         0.000000 0 0 /
+ I    kworker/30:0   195       838.453150        23   120         0.000000         0.142115         0.000000 0 0 /
+ I   kworker/30:0H   196       506.713750        11   100         0.000000         0.031976         0.000000 0 0 /
+ I    kworker/30:2   792    332783.506763      1863   120         0.000000        15.646671         0.000000 0 0 /
+ I     scsi_tmf_14   991       310.755453         2   100         0.000000         0.006978         0.000000 0 0 /
+ I   kworker/30:1H  1526    332782.575601        68   100         0.000000         0.688158         0.000000 0 0 /
+ I            nfit  1592       695.380189         2   100         0.000000         0.009845         0.000000 0 0 /
+
+cpu#31, 2200.000 MHz
+  .nr_running                    : 0
+  .nr_switches                   : 31671
+  .nr_load_updates               : 0
+  .nr_uninterruptible            : -7
+  .next_balance                  : 4320.848539
+  .curr->pid                     : 0
+  .clock                         : 26181498.800154
+  .clock_task                    : 26181350.302760
+  .avg_idle                      : 1000000
+  .max_idle_balance_cost         : 500000
+
+cfs_rq[31]:/
+  .exec_clock                    : 0.000000
+  .MIN_vruntime                  : 0.000001
+  .min_vruntime                  : 192741.237315
+  .max_vruntime                  : 0.000001
+  .spread                        : 0.000000
+  .spread0                       : -11343586.951048
+  .nr_spread_over                : 0
+  .nr_running                    : 0
+  .load                          : 0
+  .load_avg                      : 0
+  .runnable_avg                  : 0
+  .util_avg                      : 0
+  .util_est_enqueued             : 0
+  .removed.load_avg              : 0
+  .removed.util_avg              : 0
+  .removed.runnable_avg          : 0
+  .tg_load_avg_contrib           : 0
+  .tg_load_avg                   : 0
+  .throttled                     : 0
+  .throttle_count                : 0
+
+rt_rq[31]:/
+  .rt_nr_running                 : 0
+  .rt_nr_migratory               : 0
+  .rt_throttled                  : 0
+  .rt_time                       : 0.000000
+  .rt_runtime                    : 950.000000
+
+dl_rq[31]:
+  .dl_nr_running                 : 0
+  .dl_nr_migratory               : 0
+  .dl_bw->bw                     : 996147
+  .dl_bw->total_bw               : 0
+
+runnable tasks:
+ S            task   PID         tree-key  switches  prio     wait-time             sum-exec        sum-sleep
+-------------------------------------------------------------------------------------------------------------
+ S        cpuhp/31   197      1140.821760        22   120         0.000000         0.517198         0.000000 1 0 /
+ S     watchdog/31   198       -12.000000      6548     0         0.000000        35.163354         0.000000 1 0 /
+ S    migration/31   199      1911.147344        21     0         0.000000         1.479120         0.000000 1 0 /
+ S    ksoftirqd/31   200    190018.893338        21   120         0.000000         0.160903         0.000000 1 0 /
+ I   kworker/31:0H   202      3559.627958        14   100         0.000000         0.098179         0.000000 1 0 /
+ S      khugepaged   362    192741.237315      2562   139         0.000000        73.965792         0.000000 1 0 /
+ I          crypto   363        59.261938         2   100         0.000000         0.001440         0.000000 1 0 /
+ I        kthrotld   532       414.892137         2   100         0.000000         0.006210         0.000000 1 0 /
+ I mlx5_health0000   913       626.825955         2   100         0.000000         0.015670         0.000000 1 0 /
+ I      scsi_tmf_6   932       650.836797         2   100         0.000000         0.007053         0.000000 1 0 /
+ I    xfs-log/dm-0  1245       936.496020         2   100         0.000000         0.008381         0.000000 1 0 /
+ I        kdmflush  1527      1017.749755         2   100         0.000000         0.006963         0.000000 1 0 /
+ S          auditd  1621    192725.580054       593   116         0.000000        29.417984         0.000000 1 0 /
+ I    kworker/31:2  2613    192723.132166      1207   120         0.000000         6.217670         0.000000 1 0 /
+ I   kworker/31:1H  7815    190350.885248        44   100         0.000000         0.527108         0.000000 1 0 /
+ S   10_bash_login 17432    190030.893514        26   120         0.000000         9.376640         0.000000 1 0 /
+ I    kworker/31:0 21859    190363.491811         2   120         0.000000         0.043230         0.000000 1 0 /
+
+cpu#32, 2200.000 MHz
+  .nr_running                    : 0
+  .nr_switches                   : 34045
+  .nr_load_updates               : 0
+  .nr_uninterruptible            : 1
+  .next_balance                  : 4320.848539
+  .curr->pid                     : 0
+  .clock                         : 26181498.800876
+  .clock_task                    : 26180894.873579
+  .avg_idle                      : 1000000
+  .max_idle_balance_cost         : 500000
+
+rt_rq[32]:/
+  .rt_nr_running                 : 0
+  .rt_nr_migratory               : 0
+  .rt_throttled                  : 0
+  .rt_time                       : 0.000000
+  .rt_runtime                    : 950.000000
+
+dl_rq[32]:
+  .dl_nr_running                 : 0
+  .dl_nr_migratory               : 0
+  .dl_bw->bw                     : 996147
+  .dl_bw->total_bw               : 0
+
+runnable tasks:
+ S            task   PID         tree-key  switches  prio     wait-time             sum-exec        sum-sleep
+-------------------------------------------------------------------------------------------------------------
+ S        cpuhp/32   203       865.639808        22   120         0.000000         0.562703         0.000000 0 0 /
+ S     watchdog/32   204       -12.000000      6548     0         0.000000        28.708458         0.000000 0 0 /
+ S    migration/32   205      1979.147321        28     0         0.000000         1.614199         0.000000 0 0 /
+ S    ksoftirqd/32   206      9155.151598        79   120         0.000000         0.229518         0.000000 0 0 /
+ I    kworker/32:0   207       973.841314        89   120         0.000000         0.606237         0.000000 0 0 /
+ I   kworker/32:0H   208      1180.956413        14   100         0.000000         0.034743         0.000000 0 0 /
+ I            mlx4   907       499.158064         2   100         0.000000         0.009845         0.000000 0 0 /
+ I    kworker/32:3  1570      9155.206299       786   120         0.000000        18.599408         0.000000 0 0 /
+ I    xfs-cil/sda1  1581       819.181388         2   100         0.000000         0.010037         0.000000 0 0 /
+ I xfs-reclaim/sda  1583       819.183913         2   100         0.000000         0.008548         0.000000 0 0 /
+ S           gmain  1695       960.933611         1   120         0.000000         0.034127         0.000000 0 0 /
+ I   kworker/32:1H  2167      8819.210808       157   100         0.000000         1.641856         0.000000 0 0 /
+
+cpu#33, 2200.000 MHz
+  .nr_running                    : 0
+  .nr_switches                   : 403041
+  .nr_load_updates               : 0
+  .nr_uninterruptible            : -26
+  .next_balance                  : 4320.848539
+  .curr->pid                     : 0
+  .clock                         : 26181498.802080
+  .clock_task                    : 26179120.024509
+  .avg_idle                      : 714159
+  .max_idle_balance_cost         : 500000
+
+cfs_rq[33]:/
+  .exec_clock                    : 0.000000
+  .MIN_vruntime                  : 0.000001
+  .min_vruntime                  : 199474.171883
+  .max_vruntime                  : 0.000001
+  .spread                        : 0.000000
+  .spread0                       : -11336854.016480
+  .nr_spread_over                : 0
+  .nr_running                    : 0
+  .load                          : 0
+  .load_avg                      : 0
+  .runnable_avg                  : 0
+  .util_avg                      : 0
+  .util_est_enqueued             : 0
+  .removed.load_avg              : 0
+  .removed.util_avg              : 0
+  .removed.runnable_avg          : 0
+  .tg_load_avg_contrib           : 0
+  .tg_load_avg                   : 0
+  .throttled                     : 0
+  .throttle_count                : 0
+
+rt_rq[33]:/
+  .rt_nr_running                 : 0
+  .rt_nr_migratory               : 0
+  .rt_throttled                  : 0
+  .rt_time                       : 0.000000
+  .rt_runtime                    : 950.000000
+
+dl_rq[33]:
+  .dl_nr_running                 : 0
+  .dl_nr_migratory               : 0
+  .dl_bw->bw                     : 996147
+  .dl_bw->total_bw               : 0
+
+runnable tasks:
+ S            task   PID         tree-key  switches  prio     wait-time             sum-exec        sum-sleep
+-------------------------------------------------------------------------------------------------------------
+ S        cpuhp/33   209       841.244202        22   120         0.000000         0.451839         0.000000 1 0 /
+ S     watchdog/33   210       -12.000000      6548     0         0.000000        32.298022         0.000000 1 0 /
+ S    migration/33   211      2047.147323        25     0         0.000000         1.132947         0.000000 1 0 /
+ S    ksoftirqd/33   212    198739.933101        26   120         0.000000         0.334086         0.000000 1 0 /
+ I   kworker/33:0H   214       666.769716        10   100         0.000000         0.070410         0.000000 1 0 /
+ I    kworker/33:1   399    199449.280430      1199   120         0.000000        22.590309         0.000000 1 0 /
+ I     edac-poller   416        55.034144         2   100         0.000000         0.006717         0.000000 1 0 /
+ I poll_megasas0_s   909       613.828410         2   100         0.000000         0.011448         0.000000 1 0 /
+ I      scsi_tmf_1   919       625.868688         2   100         0.000000         0.041650         0.000000 1 0 /
+ S      scsi_eh_14   990       660.791173        25   120         0.000000        22.847370         0.000000 1 0 /
+ I   kworker/33:1H  1247    198717.429900       121   100         0.000000         0.665583         0.000000 1 0 /
+ I    kworker/33:2 17429    184936.972824         2   120         0.000000         0.005326         0.000000 1 0 /
+ I   kworker/u96:0 31338    199474.171883     11257   120         0.000000        80.737558         0.000000 1 0 /
+
+cpu#34, 2200.000 MHz
+  .nr_running                    : 0
+  .nr_switches                   : 31525
+  .nr_load_updates               : 0
+  .nr_uninterruptible            : 2
+  .next_balance                  : 4320.848539
+  .curr->pid                     : 0
+  .clock                         : 26181498.802999
+  .clock_task                    : 26180369.856974
+  .avg_idle                      : 1000000
+  .max_idle_balance_cost         : 500000
+
+rt_rq[34]:/
+  .rt_nr_running                 : 0
+  .rt_nr_migratory               : 0
+  .rt_throttled                  : 0
+  .rt_time                       : 0.000000
+  .rt_runtime                    : 950.000000
+
+dl_rq[34]:
+  .dl_nr_running                 : 0
+  .dl_nr_migratory               : 0
+  .dl_bw->bw                     : 996147
+  .dl_bw->total_bw               : 0
+
+runnable tasks:
+ S            task   PID         tree-key  switches  prio     wait-time             sum-exec        sum-sleep
+-------------------------------------------------------------------------------------------------------------
+ S        cpuhp/34   215      1449.120086        22   120         0.000000         0.386469         0.000000 0 0 /
+ S     watchdog/34   216       -12.000000      6548     0         0.000000        32.034693         0.000000 0 0 /
+ S    migration/34   217      2115.147298        13     0         0.000000         1.067227         0.000000 0 0 /
+ S    ksoftirqd/34   218    426921.313946       117   120         0.000000         1.519384         0.000000 0 0 /
+ I   kworker/34:0H   220      2754.688408        14   100         0.000000         0.090464         0.000000 0 0 /
+ I    kworker/34:1   401      2467.994771       424   120         0.000000         2.463577         0.000000 0 0 /
+ I    kworker/34:2   780    426921.556588      1092   120         0.000000         7.031480         0.000000 0 0 /
+ S       scsi_eh_9   979       948.831890        26   120         0.000000        44.109724         0.000000 0 0 /
+ I   xfs-conv/dm-0  1238      1001.669190         2   100         0.000000         0.007963         0.000000 0 0 /
+ S   systemd-udevd  1391    426925.340155      1117   120         0.000000       720.380926         0.000000 0 0 /
+ I   kworker/34:1H  7686    426903.181094       129   100         0.000000         0.610478         0.000000 0 0 /
+
+cpu#35, 2200.000 MHz
+  .nr_running                    : 0
+  .nr_switches                   : 319486
+  .nr_load_updates               : 0
+  .nr_uninterruptible            : -7
+  .next_balance                  : 4320.848539
+  .curr->pid                     : 0
+  .clock                         : 26181498.803661
+  .clock_task                    : 26180979.911337
+  .avg_idle                      : 1000000
+  .max_idle_balance_cost         : 500000
+
+rt_rq[35]:/
+  .rt_nr_running                 : 0
+  .rt_nr_migratory               : 0
+  .rt_throttled                  : 0
+  .rt_time                       : 0.000000
+  .rt_runtime                    : 950.000000
+
+dl_rq[35]:
+  .dl_nr_running                 : 0
+  .dl_nr_migratory               : 0
+  .dl_bw->bw                     : 996147
+  .dl_bw->total_bw               : 0
+
+runnable tasks:
+ S            task   PID         tree-key  switches  prio     wait-time             sum-exec        sum-sleep
+-------------------------------------------------------------------------------------------------------------
+ S        cpuhp/35   221       548.186196        22   120         0.000000         0.438968         0.000000 1 0 /
+ S     watchdog/35   222       -12.000000      6548     0         0.000000        32.870141         0.000000 1 0 /
+ S    migration/35   223      2183.147292        20     0         0.000000         1.085167         0.000000 1 0 /
+ S    ksoftirqd/35   224    213522.258891        15   120         0.000000         0.059653         0.000000 1 0 /
+ I   kworker/35:0H   226      2909.910273        14   100         0.000000         0.084679         0.000000 1 0 /
+ I    kworker/35:1   402    213522.287782      1001   120         0.000000         4.606623         0.000000 1 0 /
+ S       watchdogd   417        11.999994         2     0         0.000000         0.000000         0.000000 1 0 /
+ S         kswapd1   439        92.048835         3   120         0.000000         0.013091         0.000000 1 0 /
+ S       scsi_eh_0   836       194.226122         2   120         0.000000         0.006876         0.000000 1 0 /
+ I sfc0000:5e:00.0   912       237.480546         2   100         0.000000         0.069121         0.000000 1 0 /
+ I sfc0000:5e:00.1   950       285.498989         2   100         0.000000         0.006164         0.000000 1 0 /
+ S      scsi_eh_13   988       343.861013        25   120         0.000000        33.999210         0.000000 1 0 /
+ I         mlx5_fc  1023       322.846053         2   100         0.000000         0.007867         0.000000 1 0 /
+ I    xfs-buf/dm-0  1237       402.196545         2   100         0.000000         0.007850         0.000000 1 0 /
+ I   kworker/35:1H  7835    213459.275677       121   100         0.000000         0.423239         0.000000 1 0 /
+ I    kworker/35:2 21831    233725.882968      1102   120         0.000000         5.611877         0.000000 1 0 /
+ I   kworker/u96:1 30763    233771.980611     27610   120         0.000000       205.892505         0.000000 1 0 /
+
+cpu#36, 2200.000 MHz
+  .nr_running                    : 0
+  .nr_switches                   : 29358
+  .nr_load_updates               : 0
+  .nr_uninterruptible            : 2
+  .next_balance                  : 4320.848539
+  .curr->pid                     : 0
+  .clock                         : 26181498.804307
+  .clock_task                    : 26181356.334836
+  .avg_idle                      : 883296
+  .max_idle_balance_cost         : 500000
+
+cfs_rq[36]:/
+  .exec_clock                    : 0.000000
+  .MIN_vruntime                  : 0.000001
+  .min_vruntime                  : 481678.579988
+  .max_vruntime                  : 0.000001
+  .spread                        : 0.000000
+  .spread0                       : -11054649.608375
+  .nr_spread_over                : 0
+  .nr_running                    : 0
+  .load                          : 0
+  .load_avg                      : 0
+  .runnable_avg                  : 0
+  .util_avg                      : 0
+  .util_est_enqueued             : 0
+  .removed.load_avg              : 0
+  .removed.util_avg              : 0
+  .removed.runnable_avg          : 0
+  .tg_load_avg_contrib           : 0
+  .tg_load_avg                   : 0
+  .throttled                     : 0
+  .throttle_count                : 0
+
+rt_rq[36]:/
+  .rt_nr_running                 : 0
+  .rt_nr_migratory               : 0
+  .rt_throttled                  : 0
+  .rt_time                       : 0.000000
+  .rt_runtime                    : 950.000000
+
+dl_rq[36]:
+  .dl_nr_running                 : 0
+  .dl_nr_migratory               : 0
+  .dl_bw->bw                     : 996147
+  .dl_bw->total_bw               : 0
+
+runnable tasks:
+ S            task   PID         tree-key  switches  prio     wait-time             sum-exec        sum-sleep
+-------------------------------------------------------------------------------------------------------------
+ S        cpuhp/36   227       969.093352        22   120         0.000000         0.644943         0.000000 0 0 /
+ S     watchdog/36   228       -12.000000      6548     0         0.000000        29.104494         0.000000 0 0 /
+ S    migration/36   229      2251.147268        13     0         0.000000         1.048050         0.000000 0 0 /
+ S    ksoftirqd/36   230    481625.440294        60   120         0.000000         0.376503         0.000000 0 0 /
+ I   kworker/36:0H   232      3500.500704        14   100         0.000000         0.067671         0.000000 0 0 /
+ I   kworker/u97:1   301    481670.928446      3333   120         0.000000       117.599033         0.000000 0 0 /
+ I    kworker/36:2   952    481666.626187      1025   120         0.000000        23.929206         0.000000 0 0 /
+ S  irq/349-mei_me  1524         0.000000        24    49         0.000000         0.587823         0.000000 0 0 /
+ S           gmain  1730    481678.579988      6544   120         0.000000       174.572763         0.000000 0 0 /
+ S         polkitd  1676    481665.636271       240   120         0.000000        39.507000         0.000000 0 0 /
+ I   kworker/36:1H  7681    481644.410334        19   100         0.000000         0.231188         0.000000 0 0 /
+ I    kworker/36:1 27004    473312.246944         2   120         0.000000         0.005780         0.000000 0 0 /
+
+cpu#37, 2200.000 MHz
+  .nr_running                    : 0
+  .nr_switches                   : 61127
+  .nr_load_updates               : 0
+  .nr_uninterruptible            : -20
+  .next_balance                  : 4320.848539
+  .curr->pid                     : 0
+  .clock                         : 26181498.804645
+  .clock_task                    : 26181310.866252
+  .avg_idle                      : 1000000
+  .max_idle_balance_cost         : 500000
+
+rt_rq[37]:/
+  .rt_nr_running                 : 0
+  .rt_nr_migratory               : 0
+  .rt_throttled                  : 0
+  .rt_time                       : 0.000000
+  .rt_runtime                    : 950.000000
+
+dl_rq[37]:
+  .dl_nr_running                 : 0
+  .dl_nr_migratory               : 0
+  .dl_bw->bw                     : 996147
+  .dl_bw->total_bw               : 0
+
+runnable tasks:
+ S            task   PID         tree-key  switches  prio     wait-time             sum-exec        sum-sleep
+-------------------------------------------------------------------------------------------------------------
+ S        cpuhp/37   233       624.818117        22   120         0.000000         0.601812         0.000000 1 0 /
+ S     watchdog/37   234       -12.000000      6548     0         0.000000        36.995924         0.000000 1 0 /
+ S    migration/37   235      2319.147269        26     0         0.000000         1.121821         0.000000 1 0 /
+ S    ksoftirqd/37   236     41086.989030         8   120         0.000000         0.074125         0.000000 1 0 /
+ I   kworker/37:0H   238       331.545320         8   100         0.000000         0.079446         0.000000 1 0 /
+ I   kworker/37:1H   934      1641.113920        27   100         0.000000         0.078187         0.000000 1 0 /
+ I      scsi_tmf_8   977       403.601544         2   100         0.000000         0.023632         0.000000 1 0 /
+ I    xfs-cil/dm-0  1240       455.268128         2   100         0.000000         0.006749         0.000000 1 0 /
+ S          agetty  1864       759.126520        11   120         0.000000         4.795087         0.000000 1 0 /
+ I    kworker/37:0 21318    312212.147081       166   120         0.000000         0.538996         0.000000 1 0 /
+ I    kworker/37:2 21709    318396.635078       923   120         0.000000         4.216219         0.000000 1 0 /
+
+cpu#38, 2200.000 MHz
+  .nr_running                    : 0
+  .nr_switches                   : 57009
+  .nr_load_updates               : 0
+  .nr_uninterruptible            : 11
+  .next_balance                  : 4320.848537
+  .curr->pid                     : 0
+  .clock                         : 26181498.805282
+  .clock_task                    : 26181240.983499
+  .avg_idle                      : 1000000
+  .max_idle_balance_cost         : 500000
+
+cfs_rq[38]:/
+  .exec_clock                    : 0.000000
+  .MIN_vruntime                  : 0.000001
+  .min_vruntime                  : 508223.277391
+  .max_vruntime                  : 0.000001
+  .spread                        : 0.000000
+  .spread0                       : -11028104.910972
+  .nr_spread_over                : 0
+  .nr_running                    : 0
+  .load                          : 0
+  .load_avg                      : 3
+  .runnable_avg                  : 3
+  .util_avg                      : 3
+  .util_est_enqueued             : 0
+  .removed.load_avg              : 0
+  .removed.util_avg              : 0
+  .removed.runnable_avg          : 0
+  .tg_load_avg_contrib           : 0
+  .tg_load_avg                   : 0
+  .throttled                     : 0
+  .throttle_count                : 0
+
+rt_rq[38]:/
+  .rt_nr_running                 : 0
+  .rt_nr_migratory               : 0
+  .rt_throttled                  : 0
+  .rt_time                       : 0.000000
+  .rt_runtime                    : 950.000000
+
+dl_rq[38]:
+  .dl_nr_running                 : 0
+  .dl_nr_migratory               : 0
+  .dl_bw->bw                     : 996147
+  .dl_bw->total_bw               : 0
+
+runnable tasks:
+ S            task   PID         tree-key  switches  prio     wait-time             sum-exec        sum-sleep
+-------------------------------------------------------------------------------------------------------------
+ S        cpuhp/38   239      1129.331104        22   120         0.000000         0.387342         0.000000 0 0 /
+ S     watchdog/38   240       -12.000000      6548     0         0.000000        31.116219         0.000000 0 0 /
+ S    migration/38   241      2387.147246        24     0         0.000000         1.106519         0.000000 0 0 /
+ S    ksoftirqd/38   242    507545.268447      2766   120         0.000000         0.964804         0.000000 0 0 /
+ I    kworker/38:0   243        41.696429        14   120         0.000000         0.013692         0.000000 0 0 /
+ I   kworker/38:0H   244      2956.619542        14   100         0.000000         0.065494         0.000000 0 0 /
+ I    kworker/38:1   403    508211.502292      1439   120         0.000000        12.654544         0.000000 0 0 /
+ I     scsi_tmf_13   989       698.510729         2   100         0.000000         0.006932         0.000000 0 0 /
+ I      mlx5e_arfs  1042       736.390848         2   100         0.000000         0.014389         0.000000 0 0 /
+ I   kworker/38:1H  7429    507528.314290        20   100         0.000000         0.228909         0.000000 0 0 /
+ S            bash 17789    508218.840301       729   120         0.000000        80.722668         0.000000 0 0 /
+
+cpu#39, 2200.000 MHz
+  .nr_running                    : 0
+  .nr_switches                   : 43623
+  .nr_load_updates               : 0
+  .nr_uninterruptible            : -7
+  .next_balance                  : 4320.848539
+  .curr->pid                     : 0
+  .clock                         : 26181498.805617
+  .clock_task                    : 26181299.013256
+  .avg_idle                      : 1000000
+  .max_idle_balance_cost         : 500000
+
+rt_rq[39]:/
+  .rt_nr_running                 : 0
+  .rt_nr_migratory               : 0
+  .rt_throttled                  : 0
+  .rt_time                       : 0.000000
+  .rt_runtime                    : 950.000000
+
+dl_rq[39]:
+  .dl_nr_running                 : 0
+  .dl_nr_migratory               : 0
+  .dl_bw->bw                     : 996147
+  .dl_bw->total_bw               : 0
+
+runnable tasks:
+ S            task   PID         tree-key  switches  prio     wait-time             sum-exec        sum-sleep
+-------------------------------------------------------------------------------------------------------------
+ S        cpuhp/39   245       782.755403        22   120         0.000000         0.656336         0.000000 1 0 /
+ S     watchdog/39   246       -12.000000      6548     0         0.000000        36.621347         0.000000 1 0 /
+ S    migration/39   247      2455.147240        11     0         0.000000         1.036884         0.000000 1 0 /
+ S    ksoftirqd/39   248    463053.889851        23   120         0.000000         0.077818         0.000000 1 0 /
+ I   kworker/39:0H   250      1325.735273        14   100         0.000000         0.108619         0.000000 1 0 /
+ S       kdevtmpfs   347       872.489922       255   120         0.000000         2.829634         0.000000 1 0 /
+ I    kmpath_rdacd   536       242.908312         2   100         0.000000         0.058084         0.000000 1 0 /
+ I  mlx5_fw_tracer  1019       280.387230         2   100         0.000000         0.006553         0.000000 1 0 /
+ I   kworker/39:1H  7836    461969.199768        21   100         0.000000         0.119635         0.000000 1 0 /
+ I    kworker/39:0 21319    461969.232980        46   120         0.000000         0.457055         0.000000 1 0 /
+ I    kworker/39:1 21710    463053.921624       527   120         0.000000         2.506437         0.000000 1 0 /
+
+cpu#40, 2200.000 MHz
+  .nr_running                    : 1
+  .nr_switches                   : 264813
+  .nr_load_updates               : 0
+  .nr_uninterruptible            : 26
+  .next_balance                  : 4320.848594
+  .curr->pid                     : 31581
+  .clock                         : 26181499.789399
+  .clock_task                    : 26181004.359108
+  .avg_idle                      : 1000000
+  .max_idle_balance_cost         : 500000
+
+cfs_rq[40]:/
+  .exec_clock                    : 0.000000
+  .MIN_vruntime                  : 0.000001
+  .min_vruntime                  : 427201.341353
+  .max_vruntime                  : 0.000001
+  .spread                        : 0.000000
+  .spread0                       : -11109126.847010
+  .nr_spread_over                : 0
+  .nr_running                    : 1
+  .load                          : 1048576
+  .load_avg                      : 1024
+  .runnable_avg                  : 538
+  .util_avg                      : 538
+  .util_est_enqueued             : 1
+  .removed.load_avg              : 0
+  .removed.util_avg              : 0
+  .removed.runnable_avg          : 0
+  .tg_load_avg_contrib           : 0
+  .tg_load_avg                   : 0
+  .throttled                     : 0
+  .throttle_count                : 0
+
+rt_rq[40]:/
+  .rt_nr_running                 : 0
+  .rt_nr_migratory               : 0
+  .rt_throttled                  : 0
+  .rt_time                       : 0.000000
+  .rt_runtime                    : 950.000000
+
+dl_rq[40]:
+  .dl_nr_running                 : 0
+  .dl_nr_migratory               : 0
+  .dl_bw->bw                     : 996147
+  .dl_bw->total_bw               : 0
+
+runnable tasks:
+ S            task   PID         tree-key  switches  prio     wait-time             sum-exec        sum-sleep
+-------------------------------------------------------------------------------------------------------------
+ S        cpuhp/40   251       989.017350        22   120         0.000000         0.638733         0.000000 0 0 /
+ S     watchdog/40   252       -12.000000      6548     0         0.000000        28.209231         0.000000 0 0 /
+ S    migration/40   253      2523.147220         7     0         0.000000         1.013063         0.000000 0 0 /
+ S    ksoftirqd/40   254    427129.117081       117   120         0.000000         0.575180         0.000000 0 0 /
+ I   kworker/40:0H   256      2834.693251        14   100         0.000000         0.038270         0.000000 0 0 /
+ I    kworker/40:1   405    427174.784470      1065   120         0.000000        21.338760         0.000000 0 0 /
+ I    kworker/40:2   760      2834.702188         5   120         0.000000         0.025866         0.000000 0 0 /
+ I        mlx5_lag  1043       677.163830         2   100         0.000000         0.014242         0.000000 0 0 /
+ I    xfs-buf/sda1  1577       997.990941         2   100         0.000000         0.006679         0.000000 0 0 /
+ I   kworker/40:1H  7674    409908.285563         9   100         0.000000         0.174797         0.000000 0 0 /
+ I   kworker/u96:2 31463    427177.461933      6485   120         0.000000        48.962452         0.000000 0 0 /
+>R             cat 31581    427201.341353         0   120         0.000000         2.607604         0.000000 0 0 /
+
+cpu#41, 2200.000 MHz
+  .nr_running                    : 0
+  .nr_switches                   : 29387
+  .nr_load_updates               : 0
+  .nr_uninterruptible            : 4
+  .next_balance                  : 4320.848539
+  .curr->pid                     : 0
+  .clock                         : 26181498.806308
+  .clock_task                    : 26181336.528462
+  .avg_idle                      : 1000000
+  .max_idle_balance_cost         : 500000
+
+rt_rq[41]:/
+  .rt_nr_running                 : 0
+  .rt_nr_migratory               : 0
+  .rt_throttled                  : 0
+  .rt_time                       : 0.000000
+  .rt_runtime                    : 950.000000
+
+dl_rq[41]:
+  .dl_nr_running                 : 0
+  .dl_nr_migratory               : 0
+  .dl_bw->bw                     : 996147
+  .dl_bw->total_bw               : 0
+
+runnable tasks:
+ S            task   PID         tree-key  switches  prio     wait-time             sum-exec        sum-sleep
+-------------------------------------------------------------------------------------------------------------
+ S        cpuhp/41   257       489.603737        22   120         0.000000         0.561056         0.000000 1 0 /
+ S     watchdog/41   258       -12.000000      6548     0         0.000000        36.300791         0.000000 1 0 /
+ S    migration/41   259      2591.147220        45     0         0.000000         1.154200         0.000000 1 0 /
+ S    ksoftirqd/41   260    109571.950599        20   120         0.000000         1.210056         0.000000 1 0 /
+ I   kworker/41:0H   262      1164.350143        14   100         0.000000         0.073416         0.000000 1 0 /
+ I   kworker/41:1H  7745    109673.450089       202   100         0.000000         0.616067         0.000000 1 0 /
+ I    kworker/41:0 21320    351903.907789        30   120         0.000000         0.230467         0.000000 1 0 /
+ I    kworker/41:2 21711    402319.553786       794   120         0.000000         3.788246         0.000000 1 0 /
+
+cpu#42, 2200.000 MHz
+  .nr_running                    : 0
+  .nr_switches                   : 74536
+  .nr_load_updates               : 0
+  .nr_uninterruptible            : -12
+  .next_balance                  : 4320.848538
+  .curr->pid                     : 0
+  .clock                         : 26181498.806938
+  .clock_task                    : 26181258.732817
+  .avg_idle                      : 1000000
+  .max_idle_balance_cost         : 500000
+
+rt_rq[42]:/
+  .rt_nr_running                 : 0
+  .rt_nr_migratory               : 0
+  .rt_throttled                  : 0
+  .rt_time                       : 0.000000
+  .rt_runtime                    : 950.000000
+
+dl_rq[42]:
+  .dl_nr_running                 : 0
+  .dl_nr_migratory               : 0
+  .dl_bw->bw                     : 996147
+  .dl_bw->total_bw               : 0
+
+runnable tasks:
+ S            task   PID         tree-key  switches  prio     wait-time             sum-exec        sum-sleep
+-------------------------------------------------------------------------------------------------------------
+ S        cpuhp/42   263      1111.886729        22   120         0.000000         0.546212         0.000000 0 0 /
+ S     watchdog/42   264       -12.000000      6548     0         0.000000        30.053330         0.000000 0 0 /
+ S    migration/42   265      2659.147197        13     0         0.000000         1.035574         0.000000 0 0 /
+ S    ksoftirqd/42   266     37960.289985        50   120         0.000000         0.842943         0.000000 0 0 /
+ I   kworker/42:0H   268      3392.637139        14   100         0.000000         0.065265         0.000000 0 0 /
+ I    kworker/42:1   407      1267.354144       232   120         0.000000         7.323381         0.000000 0 0 /
+ S       scsi_eh_7   973       740.215421        25   120         0.000000         5.759187         0.000000 0 0 /
+ I      scsi_tmf_7   975       721.958476         2   100         0.000000         0.007251         0.000000 0 0 /
+ I           mlx5e  1041       752.362862         2   100         0.000000         0.006824         0.000000 0 0 /
+ S           gmain  1755      1180.071032         2   120         0.000000         0.019080         0.000000 0 0 /
+ I    kworker/42:3  1919     38351.044886      1353   120         0.000000         7.840534         0.000000 0 0 /
+ I   kworker/42:1H  7695     37955.648505        29   100         0.000000         0.338179         0.000000 0 0 /
+ S          tlsmgr 17574     38351.136269        64   120         0.000000        13.717627         0.000000 0 0 /
+
+cpu#43, 2200.000 MHz
+  .nr_running                    : 0
+  .nr_switches                   : 90137
+  .nr_load_updates               : 0
+  .nr_uninterruptible            : -8
+  .next_balance                  : 4320.848538
+  .curr->pid                     : 0
+  .clock                         : 26181497.789333
+  .clock_task                    : 26181111.836580
+  .avg_idle                      : 1000000
+  .max_idle_balance_cost         : 500000
+
+rt_rq[43]:/
+  .rt_nr_running                 : 0
+  .rt_nr_migratory               : 0
+  .rt_throttled                  : 0
+  .rt_time                       : 0.000000
+  .rt_runtime                    : 950.000000
+
+dl_rq[43]:
+  .dl_nr_running                 : 0
+  .dl_nr_migratory               : 0
+  .dl_bw->bw                     : 996147
+  .dl_bw->total_bw               : 0
+
+runnable tasks:
+ S            task   PID         tree-key  switches  prio     wait-time             sum-exec        sum-sleep
+-------------------------------------------------------------------------------------------------------------
+ S        cpuhp/43   269       395.732438        22   120         0.000000         0.429268         0.000000 1 0 /
+ S     watchdog/43   270       -12.000000      6548     0         0.000000        28.687597         0.000000 1 0 /
+ S    migration/43   271      2727.147165        25     0         0.000000         1.404621         0.000000 1 0 /
+ S    ksoftirqd/43   272     52676.786960        22   120         0.000000         0.556937         0.000000 1 0 /
+ I   kworker/43:0H   274      1706.041521        14   100         0.000000         0.606841         0.000000 1 0 /
+ I     mlx5_esw_wq  1018       180.084182         2   100         0.000000         0.007191         0.000000 1 0 /
+ I    mlx5_hv_vhca  1037       205.510258         2   100         0.000000         0.005468         0.000000 1 0 /
+ I   kworker/43:1H  7331     55562.055822       275   100         0.000000         1.014171         0.000000 1 0 /
+ S      runtest.sh 17455     55775.612325     10492   120         0.000000      1596.246989         0.000000 1 0 /
+ I    kworker/43:2 21321     55763.614940      3199   120         0.000000        14.874982         0.000000 1 0 /
+ I    kworker/43:0 21712     48808.808070         2   120         0.000000         0.048056         0.000000 1 0 /
+ S          stress 27029     53938.872043         1   120         0.000000         1.160045         0.000000 1 0 /
+
+cpu#44, 2200.000 MHz
+  .nr_running                    : 0
+  .nr_switches                   : 36966
+  .nr_load_updates               : 0
+  .nr_uninterruptible            : -2
+  .next_balance                  : 4320.848539
+  .curr->pid                     : 0
+  .clock                         : 26181498.807772
+  .clock_task                    : 26181323.200041
+  .avg_idle                      : 1000000
+  .max_idle_balance_cost         : 500000
+
+rt_rq[44]:/
+  .rt_nr_running                 : 0
+  .rt_nr_migratory               : 0
+  .rt_throttled                  : 0
+  .rt_time                       : 0.000000
+  .rt_runtime                    : 950.000000
+
+dl_rq[44]:
+  .dl_nr_running                 : 0
+  .dl_nr_migratory               : 0
+  .dl_bw->bw                     : 996147
+  .dl_bw->total_bw               : 0
+
+runnable tasks:
+ S            task   PID         tree-key  switches  prio     wait-time             sum-exec        sum-sleep
+-------------------------------------------------------------------------------------------------------------
+ S         systemd     1    129426.572933      3695   120         0.000000      3541.046578         0.000000 0 0 /
+ S        cpuhp/44   275       832.804506        22   120         0.000000         0.371035         0.000000 0 0 /
+ S     watchdog/44   276       -12.000000      6548     0         0.000000        31.628196         0.000000 0 0 /
+ S    migration/44   277      2795.147140        11     0         0.000000         1.016484         0.000000 0 0 /
+ S    ksoftirqd/44   278    129410.408267        74   120         0.000000         0.433753         0.000000 0 0 /
+ I   kworker/44:0H   280       937.627464        16   100         0.000000         0.072674         0.000000 0 0 /
+ I      scsi_tmf_9   980       462.929012         2   100         0.000000         0.006942         0.000000 0 0 /
+ S         polkitd  1776       937.653562         4   120         0.000000         0.135769         0.000000 0 0 /
+ I   kworker/44:1H  5705    129374.091565        90   100         0.000000         0.638230         0.000000 0 0 /
+ I    kworker/44:0 30664    129422.590862        15   120         0.000000         0.271150         0.000000 0 0 /
+ I    kworker/44:3 30665    129422.402052         5   120         0.000000         0.061666         0.000000 0 0 /
+
+cpu#45, 2200.000 MHz
+  .nr_running                    : 1
+  .nr_switches                   : 24852
+  .nr_load_updates               : 0
+  .nr_uninterruptible            : -5
+  .next_balance                  : 4320.848565
+  .curr->pid                     : 27032
+  .clock                         : 26181499.778111
+  .clock_task                    : 26161169.830863
+  .avg_idle                      : 1000000
+  .max_idle_balance_cost         : 500000
+
+cfs_rq[45]:/
+  .exec_clock                    : 0.000000
+  .MIN_vruntime                  : 0.000001
+  .min_vruntime                  : 11533812.918349
+  .max_vruntime                  : 0.000001
+  .spread                        : 0.000000
+  .spread0                       : -2515.270014
+  .nr_spread_over                : 0
+  .nr_running                    : 1
+  .load                          : 1048576
+  .load_avg                      : 1024
+  .runnable_avg                  : 1024
+  .util_avg                      : 1024
+  .util_est_enqueued             : 513
+  .removed.load_avg              : 0
+  .removed.util_avg              : 0
+  .removed.runnable_avg          : 0
+  .tg_load_avg_contrib           : 0
+  .tg_load_avg                   : 0
+  .throttled                     : 0
+  .throttle_count                : 0
+
+rt_rq[45]:/
+  .rt_nr_running                 : 0
+  .rt_nr_migratory               : 0
+  .rt_throttled                  : 0
+  .rt_time                       : 0.000000
+  .rt_runtime                    : 950.000000
+
+dl_rq[45]:
+  .dl_nr_running                 : 0
+  .dl_nr_migratory               : 0
+  .dl_bw->bw                     : 996147
+  .dl_bw->total_bw               : 0
+
+runnable tasks:
+ S            task   PID         tree-key  switches  prio     wait-time             sum-exec        sum-sleep
+-------------------------------------------------------------------------------------------------------------
+ S        cpuhp/45   281       398.627377        22   120         0.000000         0.449141         0.000000 1 0 /
+ S     watchdog/45   282       -12.000000      6548     0         0.000000        19.676048         0.000000 1 0 /
+ S    migration/45   283      2863.147153        19     0         0.000000         1.069182         0.000000 1 0 /
+ S    ksoftirqd/45   284      6255.933096        15   120         0.000000         0.213608         0.000000 1 0 /
+ I   kworker/45:0H   286      1420.218692        14   100         0.000000         0.049574         0.000000 1 0 /
+ I    kworker/45:2  1548    469124.452213       617   120         0.000000         2.533653         0.000000 1 0 /
+ I   kworker/45:1H  7332      6255.911562       111   100         0.000000         1.272191         0.000000 1 0 /
+ I    kworker/45:0 21322    473249.056840       272   120         0.000000         1.427263         0.000000 1 0 /
+>R          stress 27032  11533812.918349      2790   120         0.000000  11063001.782872         0.000000 1 0 /
+
+cpu#46, 2200.000 MHz
+  .nr_running                    : 0
+  .nr_switches                   : 25206
+  .nr_load_updates               : 0
+  .nr_uninterruptible            : 8
+  .next_balance                  : 4320.848539
+  .curr->pid                     : 0
+  .clock                         : 26181498.808534
+  .clock_task                    : 26181256.372249
+  .avg_idle                      : 1000000
+  .max_idle_balance_cost         : 500000
+
+rt_rq[46]:/
+  .rt_nr_running                 : 0
+  .rt_nr_migratory               : 0
+  .rt_throttled                  : 0
+  .rt_time                       : 0.000000
+  .rt_runtime                    : 950.000000
+
+dl_rq[46]:
+  .dl_nr_running                 : 0
+  .dl_nr_migratory               : 0
+  .dl_bw->bw                     : 996147
+  .dl_bw->total_bw               : 0
+
+runnable tasks:
+ S            task   PID         tree-key  switches  prio     wait-time             sum-exec        sum-sleep
+-------------------------------------------------------------------------------------------------------------
+ S        cpuhp/46   287       733.947094        22   120         0.000000         0.383237         0.000000 0 0 /
+ S     watchdog/46   288       -12.000000      6548     0         0.000000        37.381376         0.000000 0 0 /
+ S    migration/46   289      2931.147129        12     0         0.000000         1.746801         0.000000 0 0 /
+ S    ksoftirqd/46   290    422991.651318       117   120         0.000000     80457.038747         0.000000 0 0 /
+ I   kworker/46:0H   292      6579.794765        15   100         0.000000         0.215927         0.000000 0 0 /
+ I    kworker/46:1   411    327609.967071        88   120         0.000000         3.011306         0.000000 0 0 /
+ I      tpm_dev_wq   414        65.088628         2   100         0.000000         0.006301         0.000000 0 0 /
+ I     scsi_tmf_10   982       194.082506         2   100         0.000000         0.007625         0.000000 0 0 /
+ I           mlx5e  1045       243.386351         2   100         0.000000         0.006716         0.000000 0 0 /
+ I    kworker/46:2  1215    423115.329285      1207   120         0.000000         9.760959         0.000000 0 0 /
+ I   kworker/46:1H  6890    342073.192736        30   100         0.000000         0.149545         0.000000 0 0 /
+
+cpu#47, 2200.000 MHz
+  .nr_running                    : 1
+  .nr_switches                   : 22932
+  .nr_load_updates               : 0
+  .nr_uninterruptible            : 8
+  .next_balance                  : 4320.848574
+  .curr->pid                     : 27033
+  .clock                         : 26181499.777451
+  .clock_task                    : 26165220.862016
+  .avg_idle                      : 1000000
+  .max_idle_balance_cost         : 500000
+
+cfs_rq[47]:/
+  .exec_clock                    : 0.000000
+  .MIN_vruntime                  : 0.000001
+  .min_vruntime                  : 11529785.931435
+  .max_vruntime                  : 0.000001
+  .spread                        : 0.000000
+  .spread0                       : -6542.256928
+  .nr_spread_over                : 0
+  .nr_running                    : 1
+  .load                          : 1048576
+  .load_avg                      : 1024
+  .runnable_avg                  : 1024
+  .util_avg                      : 1024
+  .util_est_enqueued             : 513
+  .removed.load_avg              : 0
+  .removed.util_avg              : 0
+  .removed.runnable_avg          : 0
+  .tg_load_avg_contrib           : 0
+  .tg_load_avg                   : 0
+  .throttled                     : 0
+  .throttle_count                : 0
+
+rt_rq[47]:/
+  .rt_nr_running                 : 0
+  .rt_nr_migratory               : 0
+  .rt_throttled                  : 0
+  .rt_time                       : 0.000000
+  .rt_runtime                    : 950.000000
+
+dl_rq[47]:
+  .dl_nr_running                 : 0
+  .dl_nr_migratory               : 0
+  .dl_bw->bw                     : 996147
+  .dl_bw->total_bw               : 0
+
+runnable tasks:
+ S            task   PID         tree-key  switches  prio     wait-time             sum-exec        sum-sleep
+-------------------------------------------------------------------------------------------------------------
+ S        cpuhp/47   293       817.979645        22   120         0.000000         0.390413         0.000000 1 0 /
+ S     watchdog/47   294       -12.000000      6548     0         0.000000        18.908504         0.000000 1 0 /
+ S    migration/47   295      2999.147149        14     0         0.000000         1.038634         0.000000 1 0 /
+ S    ksoftirqd/47   296      2775.629840        12   120         0.000000         0.170854         0.000000 1 0 /
+ I   kworker/47:0H   298       842.275840        14   100         0.000000         0.100920         0.000000 1 0 /
+ I      scsi_tmf_4   928       625.840861         2   100         0.000000         0.006223         0.000000 1 0 /
+ I    xfs-log/sda1  1586       817.571869         2   100         0.000000         0.007234         0.000000 1 0 /
+ I   kworker/47:1H  1739    239256.625762        31   100         0.000000         0.307948         0.000000 1 0 /
+ I    kworker/47:3 21121    430930.069380        18   120         0.000000         0.121358         0.000000 1 0 /
+ I    kworker/47:0 21323    465192.116349       336   120         0.000000         1.843124         0.000000 1 0 /
+>R          stress 27033  11529785.931435      2774   120         0.000000  11067035.793330         0.000000 1 0 /
+
