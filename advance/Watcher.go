@@ -23,7 +23,7 @@ type Timeline struct {
 
 func getTask() []CpusTask {
 	var Results []CpusTask
-	file, err := os.Open("sched_debug")
+	file, err := os.Open("/proc/sched_debug")
 	if err != nil {
 		panic(err)
 	}
