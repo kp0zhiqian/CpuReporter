@@ -6,6 +6,7 @@ import (
 	"strings"
 	"strconv"
 	"time"
+	"fmt"
 	"encoding/json"
 	"github.com/shirou/gopsutil/cpu"
 )
@@ -23,7 +24,7 @@ type Timeline struct {
 
 func getTask() []CpusTask {
 	var Results []CpusTask
-	file, err := os.Open("/proc/sched_debug")
+	file, err := os.Open("sched_debug")
 	if err != nil {
 		panic(err)
 	}
@@ -37,9 +38,10 @@ func getTask() []CpusTask {
 		if strings.HasPrefix(line, "cpu#") {
 			var SingleCpu CpusTask
 			cpuTag := strings.Split(strings.Split(line, ",")[0], "#")[1]
-			percentPerCpu, _ := cpu.Percent(time.Second*1, true)
 			cpu_i, _ = strconv.ParseInt(cpuTag, 10, 64)
-			SingleCpu.Usage = percentPerCpu[cpu_i]
+			percentPerCpu, _ := cpu.Percent(time.Second*1, true)
+			SingleCpu.Usage = float64(percentPerCpu[cpu_i])
+			fmt.Println(SingleCpu.Usage)
 			SingleCpu.Cpu = cpuTag
 			Results = append(Results, SingleCpu)
 		} else if strings.HasPrefix(line, " S") || strings.HasPrefix(line, " I") || strings.HasPrefix(line, ">R") {
