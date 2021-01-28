@@ -204,7 +204,6 @@ func main() {
 	var interval string
 	flag.StringVar(&outputFile, "f", "cpu_report.html", "output file name, must end with .html, default:cpu_report.html")
 	flag.StringVar(&pageTitle, "t", "CPU Report", "page title of the report, default: CPU Report")
-	flag.StringVar(&interval, "i", "1", "the interval to record the cpu usage, default: 1s")
 	flag.Parse()
 	
 	f, err := os.Open("cpu_data.json")
