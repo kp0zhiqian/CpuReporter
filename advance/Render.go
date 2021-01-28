@@ -22,6 +22,7 @@ type PerCPU struct {
 type PerSecond struct {
 	Second int `json:"Second"`
 	Data []PerCPU  `json:"Data"`
+	Total float64 `json:"Total"`
 }
 
 type SingleHmData struct {
@@ -36,12 +37,64 @@ var (
 	hmData = []SingleHmData{}
 	seconds = []int{}
 	cpuList = []string{}
+	totalCpu []opts.LineData
 ) 
 
 func generateCpulist() {
 	for _, c := range timeline[0].Data {
 		cpuList = append(cpuList, string(c.CPU))
 	}
+}
+
+func getTotalCpuUsage() {
+	for _, s := range timeline {
+		totalCpu = append(totalCpu, opts.LineData{Value: s.Total})
+	}
+		
+}
+
+var totalCpuFormatter = `function (params) {
+	return params.value + '%'
+}`
+
+func createTotalCpuChart() *charts.Line {
+	// Create a new bar instance
+	line := charts.NewLine()
+	// Set some global options like Title/Legend/ToolTip or anything else
+	line.SetGlobalOptions(
+		charts.WithInitializationOpts(opts.Initialization{
+			Width:  "1800px",
+			Height: "700px",
+		}),
+		charts.WithTitleOpts(opts.Title{
+			Title: "Total CPU Usage",
+		}),
+		charts.WithTooltipOpts(opts.Tooltip{
+			Show: true,
+			Formatter: opts.FuncOpts(totalCpuFormatter),
+		}),
+		charts.WithYAxisOpts(opts.YAxis{
+			Name: "CPU Usage(%)",
+		}),
+		charts.WithXAxisOpts(opts.XAxis{
+			Name: "Seconds",
+		}),
+		charts.WithDataZoomOpts(opts.DataZoom{
+			Start:      0,
+			End:        100,
+			XAxisIndex: []int{0},
+		}),
+	)
+
+	// Put data into instance
+	line.SetXAxis(seconds).
+		AddSeries("Total CPU Usage", totalCpu).
+		SetSeriesOptions(
+			charts.WithAreaStyleOpts(opts.AreaStyle{
+				Opacity: 0.5,
+			}),
+		)
+	return line
 }
 
 func generateHeatMapData() {
@@ -95,7 +148,7 @@ func createPerCpuHeatMap(cpus []string) *charts.HeatMap {
 	hm.SetGlobalOptions(
 		charts.WithInitializationOpts(opts.Initialization{
 			Width:  "1800px",
-			Height: "700px",
+			Height: "900px",
 		}),
 		charts.WithTooltipOpts(opts.Tooltip{
 			Show: true,
@@ -173,13 +226,14 @@ func main() {
 		json.Unmarshal([]byte(line), &nowData)
 		timeline = append(timeline, nowData)
 	}
-
+	getTotalCpuUsage()
 	generateCpulist()
 	generateHeatMapData()
 	page := components.NewPage()
 	page.Initialization.PageTitle = pageTitle
 	page.SetLayout(components.PageCenterLayout)
 	page.AddCharts(
+		createTotalCpuChart(),
 		createPerCpuHeatMap(cpuList),
 	)
 	finalFile, err := os.Create(outputFile)

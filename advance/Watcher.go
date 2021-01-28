@@ -20,6 +20,7 @@ type CpusTask struct {
 
 type Timeline struct {
 	Second int
+	Total float64
 	Data []CpusTask
 
 }
@@ -67,6 +68,8 @@ func main() {
 	for {
 		var result = timeline
 		result.Second = second
+		percentAll, _ := cpu.Percent(time.Second*1, false)
+		result.Total, _ = strconv.ParseFloat(fmt.Sprintf("%.2f", percentAll[0] ), 64)
 		percentPerCpu, _ := cpu.Percent(time.Second*1, true)
 		for i := 0; i < len(percentPerCpu); i++ {
 			var everySecond CpusTask
